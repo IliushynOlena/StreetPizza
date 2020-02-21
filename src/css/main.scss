@@ -1,0 +1,12 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap-grid.css';
+
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+@import 'settings';
+@import 'buttons';
+
+@import 'views/_header';
+@import 'views/_footer';
+@import 'views/_main_home';
