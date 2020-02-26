@@ -1,0 +1,11 @@
+h1 {
+    @include font($font-family--first, 60px, rgb(255, 166, 0));
+}
+
+h2 {
+    @include font($font-family--second, 30px, rgb(122, 122, 122));
+}
+
+p {
+    @include font($font-family--third, 24px, #000000);
+}
