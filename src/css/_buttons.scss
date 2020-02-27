@@ -1,0 +1,10 @@
+button{
+    background-color: $button--color-primary-2;
+    @include font ($font-family--second, 14px, $font--color-primary-4);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 35px;
+    //text-shadow: none;
+    border: none;
+    border-radius: 5px;
+}
