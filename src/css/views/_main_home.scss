@@ -1,9 +1,19 @@
-.homepage-main-image {
+.homepage-main-intro {
     height: 570px;
-    background-color: gray;
+    background-color: black;
+}
 
+.homepage-main-intro-text {
+    height: 570px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 180px;
+}
+
+.homepage-main-intro-image {
+    background: url("../../img/main-intro.jpg") no-repeat;
+    background-size: cover;
 }
 
 .accent-text {
@@ -13,6 +23,7 @@
 .homepage-call-info {
     height: 100px;
     background-color: $bg--color-primary-1;
+
 }
 
 .call-info-block {
