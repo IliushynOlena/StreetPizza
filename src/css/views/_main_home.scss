@@ -1,3 +1,5 @@
+// intro
+
 .homepage-main-intro {
     height: 570px;
     background-color: black;
@@ -19,6 +21,9 @@
 .accent-text {
     color: $font--color-primary-2;
 }
+
+
+// call-info
 
 .homepage-call-info {
     height: 100px;
@@ -59,7 +64,7 @@
     text-transform: uppercase;
 }
 
-/* homepage-about */
+// about us
 
 .homepage-about {
     padding: 100px 0;
@@ -77,30 +82,113 @@
 }
 
 .homepage-about-image-block {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
 }
 
 .image-item {
-    position: absolute;
+    // position: absolute;
     height: 150px;
-    width: 270px;
+    min-width: 47%;
+    width: auto;
     background-color: $bg--color-primary-2;
 }
 
 .image-item-1 {
-    bottom: calc(180px);
+    // bottom: calc(180px);
 }
 
 .image-item-2 {
-    bottom: 15px;
+    // bottom: 15px;
 }
 
 .image-item-3 {
-    bottom: 60px;
-    right: 0px;
+    // bottom: 60px;
+    // right: 0px;
 }
 
 .image-item-4 {
-    bottom: calc(225px);
-    right: 0px;
+    // bottom: calc(225px);
+    // right: 0px;
+}
+
+//today special
+.homepage-today {
+    background: url("../../img/main-intro.jpg") no-repeat;
+}
+
+.homepage-today-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+
+.homepage-today-item {
+    width: 500px;
+    box-shadow: 0 0 20px black;
+    margin: 40px 0;
+}
+
+.today-item-image {
+    height: 420px;
+    background-color: $bg--color-primary-4;
+}
+
+
+.today-item-info {
+    background-color: $bg--color-primary-3;
+    text-align: center;
+    padding: 0 40px;
+
+}
+
+.today-item-name {
+    padding-top: 40px;
+}
+
+.today-item-description {
+    padding-bottom: 20px;
+    border-bottom: 2px solid $font--color-primary-5;
+}
+
+.today-item-price-phone {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.today-item-home {
+    @include font($font-family--second, 13px, $font--color-primary-3);
+    text-align: left;
+}
+
+.today-item-delivery {
+    @include font($font-family--second, 13px, $font--color-secondary-1);
+}
+
+.today-item-phone {
+    @include font($font-family--first, 24px, $font--color-primary-1);
+}
+
+.today-item-price {
+    @include font($font-family--first, 30px, $font--color-primary-2);
+}
+
+
+
+@media(max-width:1480px) {
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width:1200px) {
+    .call-info-number {
+        font-size: 20px;
+    }
 }
