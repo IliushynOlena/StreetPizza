@@ -1,3 +1,7 @@
+.row{
+    justify-content:center
+}
+
 footer{
     background-color: $bg--color-primary-2;
     min-height: 500px;
@@ -20,26 +24,27 @@ h4.widget-title{
 
 #navigation{
     padding: 80px 0px 50px 0px;
-    width: 32%;
 }
 
 .menu {
-    list-style: none;
     @include font($font-family--third, 14pt, $bg--color-primary-3);
     margin: 0px 0px 0px 0px;
     padding: 5px 0px 0px 0px;
-    //line-height: 1.3;
 }
 
-.manu-item-all a{
+a{
     text-decoration: none;
 }
 
-footer#site-footer a {
+ul{
+    list-style: none;
+}
+
+footer #site-footer a {
 	color:#adb2b7;
 }
 
-footer#site-footer ul li {
+footer #site-footer ul li {
     line-height: 1.3;
     margin: 0px 0px 6px 0px;
     padding: 0px 0px 6px 0px;
@@ -47,24 +52,30 @@ footer#site-footer ul li {
 
 #news_letter{
     padding: 80px 0px 50px 0px;
-    width: 32%;
 }
 
 .progression-studios-social-summary-pro{
     @include font($font-family--third, 14pt, $font--color-primary-5);
 }
 
-
-
-
 #our_app_avilable{
     padding: 80px 0px 50px 0px;
-    width: 30%;
 }
 
 #copyright-text {
     @include font($font-family--third, 13pt, $font--color-primary-5);
 	padding:38px 0px;
-    position:relative;
     text-align:  center;
+    background-color: $bg--color-primary-2;
 }
+
+.fa fa-facebook {
+    border-radius: 50%;
+    background-color: rgb(85, 172, 238);
+    position: absolute;
+    left: 758px;
+    top: 4296px;
+    width: 54px;
+    height: 52px;
+    z-index: 13;
+  }
