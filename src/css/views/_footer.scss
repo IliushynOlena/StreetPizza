@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+}
+
 .row{
     justify-content:center
 }
@@ -16,6 +20,7 @@ footer{
 .widget{
     float: left;
     margin-right: 2%;
+    width: 100%;
 }
 
 h4.widget-title{
@@ -45,7 +50,7 @@ footer #site-footer a {
 }
 
 footer #site-footer ul li {
-    line-height: 1.3;
+   // line-height: 1.3;
     margin: 0px 0px 6px 0px;
     padding: 0px 0px 6px 0px;
 }
@@ -56,6 +61,7 @@ footer #site-footer ul li {
 
 .progression-studios-social-summary-pro{
     @include font($font-family--third, 14pt, $font--color-primary-5);
+    line-height: 3;
 }
 
 #our_app_avilable{
@@ -64,9 +70,46 @@ footer #site-footer ul li {
 
 #copyright-text {
     @include font($font-family--third, 13pt, $font--color-primary-5);
-	padding:38px 0px;
+	  padding:38px 0px;
     text-align:  center;
     background-color: $bg--color-primary-2;
+    padding: 30px 0px 55px 0px;
+    letter-spacing: 1px;
+}
+
+#copyright-text a{
+  @include font($font-family--third, 13pt, $font--color-primary-4);
+  padding:38px 0px;
+  text-align:  center;
+  background-color: $bg--color-primary-2;
+  padding: 30px 0px 55px 0px;
+  letter-spacing: 1px;
+  position: relative;
+  float: none;
+}
+
+#copyright-text:before {
+  content: '';
+  width: 25%;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  background: #ffffff;
+  height: 1px;
+  z-index: -1;
+  display: block;
+}
+
+#copyright-text:after {
+  content: '';
+  width: 25%;
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  background: #ffffff;
+  height: 1px;
+  z-index: -1;
+  display: block;
 }
 
 .fa fa-facebook {
@@ -102,9 +145,10 @@ footer #site-footer ul li {
     padding-bottom: 8px;
     //display: contents;
   }
-
+  
   .progression-studios-open-hours{
-      display: contents;
+    display: contents;
+    line-height: 3;
   }
 
   ul.progression-studios-social-widget{
@@ -117,7 +161,7 @@ footer #site-footer ul li {
 
   .progression-studios-social-widget li a{
         display: inline-block;
-        margin: 0px 3px 8px 0px;
+        margin: 0px 15px 8px 0px;
         border-radius: 100px;
         font-size: 20px;
         width: 50px;
@@ -141,3 +185,43 @@ footer #site-footer ul li {
     background: #c11419;
     border-color: #c11419;
   }
+
+  #mc_embed_signup .mc-field-group input {
+    background: transparent;
+    border: 2px solid #52535e;
+    border-radius: 3px;
+    color: #adb2b7;
+    width: 55%;
+    margin-right: 5px;
+    padding: 8px 15px;
+    font-size: 13px;
+    text-transform: none;
+}
+
+#mc_embed_signup input#mc-embedded-subscribe {
+  border-radius: 3px;
+  color: #ffffff;
+  background: #fea100;
+  border: 2px solid #fea100;
+  padding: 14px 18px;
+  line-height: 1;
+  font-size: 13px !important;
+  font-weight: 700;
+}
+
+#mc_embed_signup .mc-field-group {
+  display: inline; 
+}
+
+#mc_embed_signup .clear {
+  display: inline;
+  clear: none;
+  visibility: visible;
+}
+
+ul.progression-studios-social-widget {
+  display: block;
+  list-style: none;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
+}
