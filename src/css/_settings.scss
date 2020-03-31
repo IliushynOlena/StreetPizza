@@ -3,7 +3,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p{
     margin: 0;
 }
 
@@ -17,6 +18,10 @@ h2 {
 
 h3 {
     @include font($font-family--first, 26px, $font--color-primary-3);
+}
+
+h4 {
+    @include font($font-family--first, 16px, $font--color-primary-3);
 }
 
 p {

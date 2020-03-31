@@ -23,6 +23,21 @@
 }
 
 
+//other
+.homepage-title{
+    padding:80px 0 20px;
+    text-align: center;
+}
+
+.title-secondary-color{
+    color: black;
+}
+
+.border-bottom {
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+
 // call-info
 
 .homepage-call-info {
@@ -67,11 +82,7 @@
 // about us
 
 .homepage-about {
-    padding: 100px 0;
-}
-
-.homepage-about-title {
-    color: black;
+    padding: 80px 0;
 }
 
 .homepage-about-text {
@@ -89,29 +100,10 @@
 }
 
 .image-item {
-    // position: absolute;
     height: 150px;
     min-width: 47%;
     width: auto;
     background-color: $bg--color-primary-2;
-}
-
-.image-item-1 {
-    // bottom: calc(180px);
-}
-
-.image-item-2 {
-    // bottom: 15px;
-}
-
-.image-item-3 {
-    // bottom: 60px;
-    // right: 0px;
-}
-
-.image-item-4 {
-    // bottom: calc(225px);
-    // right: 0px;
 }
 
 //today special
@@ -121,17 +113,16 @@
 
 .homepage-today-block {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 
 }
 
-
 .homepage-today-item {
-    width: 500px;
+    max-width: 49%;
     box-shadow: 0 0 20px black;
-    margin: 40px 0;
+    margin-bottom: 20px;
 }
 
 .today-item-image {
@@ -151,9 +142,8 @@
     padding-top: 40px;
 }
 
-.today-item-description {
-    padding-bottom: 20px;
-    border-bottom: 2px solid $font--color-primary-5;
+.today-item-description{
+    padding: 20px 0 40px;
 }
 
 .today-item-price-phone {
@@ -180,7 +170,33 @@
 }
 
 
+//menu
+.homepage-menu-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
 
+.menu-item-left-part{
+    max-width: 75%;
+}
+.menu-item-recipe{
+    padding-top:5px;
+}
+
+.menu-item-price {
+    @include font($font-family--first, 26px, $font--color-primary-2);
+    margin-right: 20px;
+}
+
+.homepage-menu-readmore{
+    padding:20px 0 80px;
+    margin:auto;
+
+}
+
+//media
 @media(max-width:1480px) {
     h2 {
         font-size: 28px;
