@@ -33,3 +33,41 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* font-awesome */
+
+@font-face {
+    font-family: 'fa-brands';
+    src: url('../fonts/fa-brands-400.eot');
+    src: url('../fonts/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fa-brands-400.woff2') format('woff2'),
+        url('../fonts/fa-brands-400.woff') format('woff'),
+        url('../fonts/fa-brands-400.ttf') format('truetype'),
+        url('../fonts/fa-brands-400.svg#sintonyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fa-regular';
+    src: url('../fonts/fa-regular-400.eot');
+    src: url('../fonts/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fa-regular-400.woff2') format('woff2'),
+        url('../fonts/fa-regular-400.woff') format('woff'),
+        url('../fonts/fa-regular-400.ttf') format('truetype'),
+        url('../fonts/fa-regular-400.svg#sintonyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fa-solid';
+    src: url('../fonts/fa-solid-900.eot');
+    src: url('../fonts/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/fa-solid-900.woff2') format('woff2'),
+        url('../fonts/fa-solid-900.woff') format('woff'),
+        url('../fonts/fa-solid-900.ttf') format('truetype'),
+        url('../fonts/fa-solid-900.svg#sintonyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
