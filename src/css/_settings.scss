@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    margin: 0;
+}
+
 h1 {
     @include font($font-family--first, 56px, $font--color-primary-4);
 }
@@ -10,11 +20,15 @@ h3 {
     @include font($font-family--first, 26px, $font--color-primary-3);
 }
 
+h4 {
+    @include font($font-family--first, 16px, $font--color-primary-3);
+}
+
 p {
     @include font($font-family--second, 14px, $font--color-primary-5);
 }
 
 body {
     background-color: $bg--color-primary-1;
+    margin: 0;
 }
-

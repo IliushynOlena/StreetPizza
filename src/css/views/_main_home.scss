@@ -1,0 +1,210 @@
+// intro
+
+.homepage-main-intro {
+    height: 570px;
+    background-color: black;
+}
+
+.homepage-main-intro-text {
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 180px;
+}
+
+.homepage-main-intro-image {
+    background: url("../../img/main-intro.jpg") no-repeat;
+    background-size: cover;
+}
+
+.accent-text {
+    color: $font--color-primary-2;
+}
+
+
+//other
+.homepage-title{
+    padding:80px 0 20px;
+    text-align: center;
+}
+
+.title-secondary-color{
+    color: black;
+}
+
+.border-bottom {
+    padding-bottom: 20px;
+    border-bottom: 1px solid silver;
+}
+
+// call-info
+
+.homepage-call-info {
+    height: 100px;
+    background-color: $bg--color-primary-1;
+
+}
+
+.call-info-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #d7dee3;
+    height: 100px;
+}
+
+.call-info-icon {
+    margin-right: 30px;
+    height: 50px;
+}
+
+.call-info-text {
+    @include font($font-family--second, 14px, $font--color-primary-3);
+    text-transform: uppercase;
+}
+
+.call-info-text-callus {
+    margin-top: 5px;
+}
+
+.call-info-text-accent {
+    color: $font--color-primary-2;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.call-info-number {
+    @include font($font-family--first, 32px, $font--color-primary-3);
+    text-transform: uppercase;
+}
+
+// about us
+
+.homepage-about {
+    padding: 80px 0;
+}
+
+.homepage-about-text {
+    margin: 30px 0;
+    font-family: $font-family--third;
+    line-height: 1.8em;
+
+}
+
+.homepage-about-image-block {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.image-item {
+    height: 150px;
+    min-width: 47%;
+    width: auto;
+    background-color: $bg--color-primary-2;
+}
+
+//today special
+.homepage-today {
+    background: url("../../img/main-intro.jpg") no-repeat;
+}
+
+.homepage-today-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+.homepage-today-item {
+    max-width: 49%;
+    box-shadow: 0 0 20px black;
+    margin-bottom: 20px;
+}
+
+.today-item-image {
+    height: 420px;
+    background-color: $bg--color-primary-4;
+}
+
+
+.today-item-info {
+    background-color: $bg--color-primary-3;
+    text-align: center;
+    padding: 0 40px;
+
+}
+
+.today-item-name {
+    padding-top: 40px;
+}
+
+.today-item-description{
+    padding: 20px 0 40px;
+}
+
+.today-item-price-phone {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.today-item-home {
+    @include font($font-family--second, 13px, $font--color-primary-3);
+    text-align: left;
+}
+
+.today-item-delivery {
+    @include font($font-family--second, 13px, $font--color-secondary-1);
+}
+
+.today-item-phone {
+    @include font($font-family--first, 24px, $font--color-primary-1);
+}
+
+.today-item-price {
+    @include font($font-family--first, 30px, $font--color-primary-2);
+}
+
+
+//menu
+.homepage-menu-item{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.menu-item-left-part{
+    max-width: 75%;
+}
+.menu-item-recipe{
+    padding-top:5px;
+}
+
+.menu-item-price {
+    @include font($font-family--first, 26px, $font--color-primary-2);
+    margin-right: 20px;
+}
+
+.homepage-menu-readmore{
+    padding:20px 0 80px;
+    margin:auto;
+
+}
+
+//media
+@media(max-width:1480px) {
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width:1200px) {
+    .call-info-number {
+        font-size: 20px;
+    }
+}
