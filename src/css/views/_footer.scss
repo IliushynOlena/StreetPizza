@@ -1,0 +1,227 @@
+body{
+  margin: 0;
+}
+
+.row{
+    justify-content:center
+}
+
+footer{
+    background-color: $bg--color-primary-2;
+    min-height: 500px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: block;
+}
+
+.widget{
+    float: left;
+    margin-right: 2%;
+    width: 100%;
+}
+
+h4.widget-title{
+@include font($font-family--first, 24pt, $font--color-primary-4)
+}
+
+#navigation{
+    padding: 80px 0px 50px 0px;
+}
+
+.menu {
+    @include font($font-family--third, 14pt, $bg--color-primary-3);
+    margin: 0px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+footer #site-footer a {
+	color:#adb2b7;
+}
+
+footer #site-footer ul li {
+   // line-height: 1.3;
+    margin: 0px 0px 6px 0px;
+    padding: 0px 0px 6px 0px;
+}
+
+#news_letter{
+    padding: 80px 0px 50px 0px;
+}
+
+.progression-studios-social-summary-pro{
+    @include font($font-family--third, 14pt, $font--color-primary-5);
+    line-height: 3;
+}
+
+#our_app_avilable{
+    padding: 80px 0px 50px 0px;
+}
+
+#copyright-text {
+    @include font($font-family--third, 13pt, $font--color-primary-5);
+	  padding:38px 0px;
+    text-align:  center;
+    background-color: $bg--color-primary-2;
+    padding: 30px 0px 55px 0px;
+    letter-spacing: 1px;
+}
+
+#copyright-text a{
+  @include font($font-family--third, 13pt, $font--color-primary-4);
+  padding:38px 0px;
+  text-align:  center;
+  background-color: $bg--color-primary-2;
+  padding: 30px 0px 55px 0px;
+  letter-spacing: 1px;
+  position: relative;
+  float: none;
+}
+
+#copyright-text:before {
+  content: '';
+  width: 25%;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  background: #ffffff;
+  height: 1px;
+  z-index: -1;
+  display: block;
+}
+
+#copyright-text:after {
+  content: '';
+  width: 25%;
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  background: #ffffff;
+  height: 1px;
+  z-index: -1;
+  display: block;
+}
+
+.fa fa-facebook {
+    border-radius: 50%;
+    background-color: rgb(85, 172, 238);
+    position: absolute;
+    left: 758px;
+    top: 4296px;
+    width: 54px;
+    height: 52px;
+    z-index: 13;
+  }
+
+.date-day-pro{
+    display: inline-block;
+    color:#adb2b7;
+    font-family: 'Playfair Display', Serif;
+    font-style: italic;
+}
+
+
+  .hours-date-pro{
+    display: inline-block;
+    float: right;
+    color:#adb2b7;
+    font-size: 90%;
+    font-family: 'Playfair Display', Serif;
+  }
+
+  .progression-studios-open-hours li{
+    border-bottom: 1px dotted #52535e;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    //display: contents;
+  }
+  
+  .progression-studios-open-hours{
+    display: contents;
+    line-height: 3;
+  }
+
+  ul.progression-studios-social-widget{
+    display: block;
+  }
+
+  ul.progression-studios-social-widget li{
+    display: inline-block;
+  }
+
+  .progression-studios-social-widget li a{
+        display: inline-block;
+        margin: 0px 15px 8px 0px;
+        border-radius: 100px;
+        font-size: 20px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        height: 50px;
+        color: #ffffff;
+  }
+
+  a.facebook-pro{
+    background-color: #3b5998;
+    border-color: #3b5998;
+  }
+
+  a.twitter-pro{
+    background: #55acee;
+    border-color: #55acee;
+  }
+
+  a.google-pro{
+    background: #c11419;
+    border-color: #c11419;
+  }
+
+  #mc_embed_signup .mc-field-group input {
+    background: transparent;
+    border: 2px solid #52535e;
+    border-radius: 3px;
+    color: #adb2b7;
+    width: 55%;
+    margin-right: 5px;
+    padding: 8px 15px;
+    font-size: 13px;
+    text-transform: none;
+}
+
+#mc_embed_signup input#mc-embedded-subscribe {
+  border-radius: 3px;
+  color: #ffffff;
+  background: #fea100;
+  border: 2px solid #fea100;
+  padding: 14px 18px;
+  line-height: 1;
+  font-size: 13px !important;
+  font-weight: 700;
+}
+
+#mc_embed_signup .mc-field-group {
+  display: inline; 
+}
+
+#mc_embed_signup .clear {
+  display: inline;
+  clear: none;
+  visibility: visible;
+}
+
+ul.progression-studios-social-widget {
+  display: block;
+  list-style: none;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
+}

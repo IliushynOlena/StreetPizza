@@ -3,3 +3,8 @@
     font-size: $font-size;
     color: $color;
 }
+
+
+@mixin button($background-color){
+    background-color: $background-color
+  }
