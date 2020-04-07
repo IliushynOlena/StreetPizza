@@ -24,7 +24,7 @@ padding-bottom:20px;
     margin-bottom:12px;
 }
 #navigation{
-    padding: 80px 0px 50px 0px;
+  padding-top: 60px;
 }
 
 .menu {
@@ -47,7 +47,7 @@ footer #site-footer a {
 
 
 #news_letter{
-    padding: 80px 0px 50px 0px;
+  padding-top: 60px;
 }
 
 .progression-studios-social-summary-pro{
@@ -56,24 +56,23 @@ footer #site-footer a {
 }
 
 #our_app_avilable{
-    padding: 80px 0px 50px 0px;
+  padding-top: 60px;
 }
 
 #copyright-text {
     @include font($font-family--third, 13px, $font--color-primary-5);
-	  padding:38px 0px;
+	  padding:30px 0px;
     text-align:  center;
     background-color: $bg--color-primary-2;
-    padding: 30px 0px 55px 0px;
+    padding: 50px 0;
     letter-spacing: 1px;
 }
 
 #copyright-text a{
   @include font($font-family--third, 13px, $font--color-primary-4);
-  padding:38px 0px;
+  padding:10px 0px;
   text-align:  center;
   background-color: $bg--color-primary-2;
-  padding: 30px 0px 55px 0px;
   letter-spacing: 1px;
   position: relative;
   float: none;
@@ -205,6 +204,6 @@ footer #site-footer a {
 ul.progression-studios-social-widget {
   display: block;
   list-style: none;
-  margin: 0px 0px 0px 0px;
-  padding: 10px 0px 0px 0px;
+  margin: 0;
+  padding-top: 10px;
 }
