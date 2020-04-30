@@ -1,0 +1,75 @@
+#!groovy
+//  groovy Jenkinsfile
+properties([disableConcurrentBuilds()])
+
+pipeline  {
+    agent { 
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages {
+        stage("Create docker image") {
+            steps {
+                echo 'Creating docker image ...'
+                dir('.'){
+                    sh "docker build -t ElenaIlyshun1/StreetPizza
+                }
+            }
+        }
+        stage("docker login") {
+            steps {
+                echo " ============== docker login =================="
+                withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh '''
+                    docker login -u $USERNAME -p $PASSWORD
+                    '''
+                }
+            }
+        }
+        stage("docker push") {
+            steps {
+                echo " ============== pushing image =================="
+                sh '''
+                docker push ElenaIlyshun1/StreetPizza
+                '''
+            }
+        }
+        
+        stage("docker stop") {
+            steps {
+               echo " ============== stoping all images =================="
+                sh '''
+                docker stop StreetPizza
+                '''
+            }
+        } 
+        stage("docker remove") {
+            steps {
+                echo " ============== removing all docker containers =================="
+                sh '''
+                docker rm StreetPizza
+               '''
+            }
+        }
+        stage("docker run") {
+            steps {
+                echo " ============== starting StreetPizzar =================="
+               sh '''
+                docker run -d --restart=always --name StreetPizza -p 80:4200 ElenaIlyshun1/StreetPizza
+                '''
+            }
+          }
+        // stage("Deploy to stage server") {
+        //     steps {
+        //         echo " ============== Running playbook =================="
+        //         sh '''
+        //         ansible-playbook toolbox/ansible/playbooks/demloyToStageServer.yml
+        //         '''
+        //     }
+        //}
+
+    }
+}
