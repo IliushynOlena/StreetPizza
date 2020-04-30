@@ -1,0 +1,16 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="container">
+    @{
+        foreach (var item in Model)
+        {
+            <span>@item.Name</span>
+            <span>@item.PriceMedium</span>
+            <span>@item.PriceLarge</span>
+        }
+    }
+</div>
