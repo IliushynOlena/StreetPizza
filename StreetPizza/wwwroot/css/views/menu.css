@@ -3,7 +3,8 @@
 
 .menu-page {
     position: relative;
-    background: url("../../img/temnaya_derevyannaya_tekstura.jpg");
+    background: url("../../img/temnaya_derevyannaya_tekstura.png");
+    background-size: cover;
 }
 
 .menu-title {
@@ -28,55 +29,48 @@
 .menu-item {
     width: 32%;
     margin: 10px 0;
-}
-
-.item-image {
-    height: 350px;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+    border: 2px solid black;
+    box-shadow: 0 0 5px 5px black;
+    border-radius: 10px;
 }
 
 .item-body {
-    background-color: var(--font--color-primary-4);
-    background-color: var(--bg--color-primary-3);
     padding: 0 20px;
-    border-radius: 0 0 10px 10px;
+    color: var(--font--color-primary-4);
+    text-shadow: 5px 5px 5px black;
+}
+
+.item-image {
+    width: 100%;
 }
 
 .item-name {
-    color: var(--font--color-primary-3);
     text-align: center;
-    padding: 40px 0 20px;
+    padding-bottom: 20px;
 }
 
 .item-description {
-    height: 100px;
-    padding: 0 20px;
+    color: var(--font--color-primary-4);
+    height: 120px;
     text-align: justify;
+    border-bottom: 2px solid darkgoldenrod;
 }
 
 .item-order-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
-}
-
-.item-price-block {
-    font-family: var(--font-family--second);
-    font-size: 56px;
-    color: var(--font--color-primary-2);
-    position: relative;
-    height:70px;
-    top: -5px;
-    left:-50px;
+    padding: 5px 10px 12px;
 }
 
 .item-price {
-    position: absolute;
-   
+    font-family: var(--font-family--second);
+    font-size: 48px;
+    color: var(--font--color-primary-2);
+    height: 70px;
 }
-.btn-changesize {
+
+/*.btn-changesize {
     height: 30px;
     padding: 2px 5px;
     background-color: var(--button--color-primary-1);
@@ -89,9 +83,9 @@
         background-color: var(--button--color-primary-2);
         color: var(--button--color-primary-1);
         border-color: var(--button--color-primary-1);
-    }
+    }*/
 
 .btn-order {
     padding: 0 20px;
+    box-shadow: 5px 5px 5px black;
 }
-

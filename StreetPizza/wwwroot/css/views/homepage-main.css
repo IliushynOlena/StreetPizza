@@ -135,7 +135,8 @@
 
 /*today special*/
 .homepage-today {
-    background: url("../../img/temnaya_derevyannaya_tekstura.jpg") no-repeat;
+    background: url("../../img/temnaya_derevyannaya_tekstura.png") no-repeat;
+    background-size: cover;
 }
 
 .homepage-today-block {
