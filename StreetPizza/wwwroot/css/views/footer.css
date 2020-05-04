@@ -1,0 +1,218 @@
+﻿footer {
+    background-color: var(--bg--color-primary-2);
+    min-height: 500px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: block;
+}
+
+.widget {
+    float: left;
+    margin-right: 2%;
+    width: 100%;
+}
+
+h4.widget-title {
+    font-family: var(--font-family--first);
+    font-size: 24px;
+    color: var(--font--color-primary-4);
+    padding-bottom: 20px;
+}
+
+.menu-item-all {
+    margin-bottom: 12px;
+}
+
+#navigation {
+    padding-top: 60px;
+}
+
+.menu {
+    font-family: var(--font-family--second);
+    font-size: 14px;
+    color: var(--font--color-primary-3);
+    margin: 0px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+footer #site-footer a {
+    color: #adb2b7;
+}
+
+
+#news_letter {
+    padding-top: 60px;
+}
+
+.progression-studios-social-summary-pro {
+    font-family: var(--font-family--second);
+    font-size: 14px;
+    color: var(--font--color-primary-5);
+    line-height: 3;
+}
+
+#our_app_avilable {
+    padding-top: 60px;
+}
+
+#copyright-text {
+    font-family: var(--font-family--second);
+    font-size: 13px;
+    color: var(--font--color-primary-5);
+    padding: 30px 0px;
+    text-align: center;
+    background-color: var(--bg--color-primary-2);
+    padding: 50px 0;
+    letter-spacing: 1px;
+}
+
+    #copyright-text a {
+        font-family: var(--font-family--second);
+        font-size: 13px;
+        color: var(--font--color-primary-4);
+        padding: 10px 0px;
+        text-align: center;
+        background-color: var(--bg--color-primary-2);
+        letter-spacing: 1px;
+        position: relative;
+        float: none;
+    }
+
+    #copyright-text:before {
+        content: '';
+        width: 25%;
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        background: #ffffff;
+        height: 1px;
+        z-index: -1;
+        display: block;
+    }
+
+    #copyright-text:after {
+        content: '';
+        width: 25%;
+        position: absolute;
+        right: 0px;
+        top: 50px;
+        background: #ffffff;
+        height: 1px;
+        z-index: -1;
+        display: block;
+    }
+
+.date-day-pro {
+    display: inline-block;
+    color: #adb2b7;
+    font-family: 'Playfair Display', Serif;
+    font-style: italic;
+}
+
+
+.hours-date-pro {
+    display: inline-block;
+    float: right;
+    color: #adb2b7;
+    font-size: 90%;
+    font-family: 'Playfair Display', Serif;
+}
+
+.progression-studios-open-hours li {
+    border-bottom: 1px dotted #52535e;
+}
+
+.progression-studios-open-hours {
+    display: contents;
+    line-height: 3;
+}
+
+ul.progression-studios-social-widget {
+    display: block;
+}
+
+    ul.progression-studios-social-widget li {
+        display: inline-block;
+    }
+
+.progression-studios-social-widget li a {
+    display: inline-block;
+    margin: 20px 5px 0 0;
+    border-radius: 100px;
+    font-size: 20px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+}
+
+#mce-EMAIL {
+    height: 45px;
+}
+
+
+a.facebook-pro {
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+a.twitter-pro {
+    background: #55acee;
+    border-color: #55acee;
+}
+
+a.google-pro {
+    background: #c11419;
+    border-color: #c11419;
+}
+
+#mc_embed_signup .mc-field-group input {
+    background: transparent;
+    border: 2px solid #52535e;
+    border-radius: 3px;
+    color: #adb2b7;
+    width: 55%;
+    margin-right: 5px;
+    padding: 8px 15px;
+    font-size: 13px;
+    text-transform: none;
+}
+
+#mc_embed_signup input#mc-embedded-subscribe {
+    border-radius: 3px;
+    color: #ffffff;
+    background: #fea100;
+    border: 2px solid #fea100;
+    padding: 14px 18px;
+    line-height: 1;
+    font-size: 13px !important;
+    font-weight: 700;
+}
+
+#mc_embed_signup .mc-field-group {
+    display: inline;
+}
+
+#mc_embed_signup .clear {
+    display: inline;
+    clear: none;
+    visibility: visible;
+}
+
+ul.progression-studios-social-widget {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding-top: 10px;
+}

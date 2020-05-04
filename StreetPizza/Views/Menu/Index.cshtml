@@ -1,0 +1,36 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="menu-page">
+    <h1 class="menu-title">Menu</h1>
+    <div class="menu-body">
+        <div class="container">
+            <div id="menu-items">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="menu-item">
+                            <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
+                            <div class="item-body">
+                                <h2 class="item-name">@item.Name</h2>
+                                <p class="item-description">@item.Ingredients</p>
+                                <div class="item-order-info">
+                                    <div class="item-price">@item.PriceLarge</div>
+                                    <button class="btn-order">В кошик</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+
+</div>

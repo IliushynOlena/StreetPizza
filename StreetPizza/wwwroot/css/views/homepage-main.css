@@ -1,0 +1,242 @@
+﻿/*intro*/
+
+.homepage-main-intro {
+    height: 570px;
+    background: url("../../img/main-intro.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 5px 5px 5px black;
+}
+
+.intro-title {
+    margin-bottom: 20px;
+}
+
+.intro-subtitle-accent {
+    color: var(--font--color-primary-2);
+}
+
+
+
+
+/*other*/
+.title-primary-style {
+    padding: 80px 0 20px;
+    text-align: center;
+    color: black;
+}
+
+.title-secondary-style {
+    padding: 80px 0 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #d7dee3;
+}
+
+/*call-info*/
+
+.homepage-call-info {
+    height: 100px;
+    background-color: var(--bg--color-primary-1);
+    border-bottom: 1px solid #d7dee3;
+}
+
+.call-info-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #d7dee3;
+    height: 100px;
+}
+
+.call-info-icon {
+    margin-right: 30px;
+    height: 50px;
+}
+
+.call-info-text {
+    font-family: var(--font-family--first);
+    font-size: 14px;
+    color: var(--font--color-primary-3);
+    text-transform: uppercase;
+}
+
+.call-info-text-callus {
+    margin-top: 5px;
+}
+
+.call-info-text-accent {
+    color: var(--font--color-primary-2);
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.call-info-number {
+    font-family: var(--font-family--first);
+    font-size: 32px;
+    color: var(--font--color-primary-3);
+    text-transform: uppercase;
+}
+
+/*about us*/
+
+.homepage-about {
+    background-color: var(--bg--color-primary-3);
+    padding: 80px 0;
+}
+
+.homepage-about-title{
+    color:black;
+}
+
+.homepage-about-text {
+    margin: 30px 0;
+    line-height: 1.8em;
+}
+
+.homepage-about-image-block {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-image-item {
+    height: 150px;
+    min-width: 47%;
+    width: auto;
+}
+
+.about-image-item-1 {
+    background: url("../../img/main-about-1.jpg") no-repeat;
+    background-size: cover;
+}
+
+.about-image-item-2 {
+    background: url("../../img/main-about-2.jpg") no-repeat;
+    background-size: cover;
+}
+
+.about-image-item-3 {
+    background: url("../../img/main-about-3.jpg") no-repeat;
+    background-size: cover;
+}
+
+.about-image-item-4 {
+    background: url("../../img/main-about-4.jpg") no-repeat;
+    background-size: cover;
+}
+
+/*today special*/
+.homepage-today {
+    background: url("../../img/temnaya_derevyannaya_tekstura.png") no-repeat;
+    background-size: cover;
+}
+
+.homepage-today-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.homepage-today-item {
+    max-width: 49%;
+    box-shadow: 0 0 20px black;
+    margin-bottom: 20px;
+}
+
+.today-item-image {
+    height: 400px;
+    width: auto;
+}
+
+.today-item-image-1 {
+    background: url("../../img/main-today-1.jpg") no-repeat;
+    background-size: cover;
+}
+
+.today-item-image-2 {
+    background: url("../../img/main-today-2.jpg") no-repeat;
+    background-size: cover;
+}
+
+.today-item-info {
+    background-color: var(--bg--color-primary-3);
+    text-align: center;
+    padding: 0 40px;
+}
+
+.today-item-name {
+    padding-top: 40px;
+}
+
+.today-item-description {
+    padding: 20px 0 40px;
+}
+
+.today-item-price-phone {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.today-item-home {
+    font-family: var(--font-family--first);
+    font-size: 13px;
+    color: var(--font--color-primary-3);
+    text-align: left;
+}
+
+.today-item-delivery {
+    font-family: var(--font-family--first);
+    font-size: 13px;
+    color: var(--font--color-secondary-1);
+}
+
+.today-item-phone {
+    font-family: var(--font-family--first);
+    font-size: 24px;
+    color: var(--font--color-primary-1);
+}
+
+.today-item-price {
+    font-family: var(--font-family--first);
+    font-size: 30px;
+    color: var(--font--color-primary-2);
+}
+
+
+/*menu*/
+.homepage-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.menu-item-left-part {
+    max-width: 75%;
+}
+
+.menu-item-recipe {
+    padding-top: 5px;
+}
+
+.menu-item-price {
+    font-family: var(--font-family--first);
+    font-size: 26px;
+    color: var(--font--color-primary-2);
+    margin-right: 20px;
+}
+
+.homepage-menu-readmore {
+    padding: 20px 0 80px;
+    margin: auto;
+}
