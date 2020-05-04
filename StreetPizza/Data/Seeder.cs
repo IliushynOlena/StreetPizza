@@ -41,6 +41,7 @@ namespace StreetPizza.Data
                 PriceLarge = 259,
                 IsFavorite = true
             });
+
             #endregion
         }
 

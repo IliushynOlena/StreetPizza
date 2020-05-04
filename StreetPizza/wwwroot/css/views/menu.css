@@ -1,1 +1,97 @@
 ﻿
+@import '../helpers/variables.css';
+
+.menu-page {
+    position: relative;
+    background: url("../../img/temnaya_derevyannaya_tekstura.jpg");
+}
+
+.menu-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    text-shadow: 5px 5px 5px black;
+    padding: 30px;
+}
+
+#menu-items {
+    padding: 142px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    width: 32%;
+    margin: 10px 0;
+}
+
+.item-image {
+    height: 350px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.item-body {
+    background-color: var(--font--color-primary-4);
+    background-color: var(--bg--color-primary-3);
+    padding: 0 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.item-name {
+    color: var(--font--color-primary-3);
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.item-description {
+    height: 100px;
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.item-order-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.item-price-block {
+    font-family: var(--font-family--second);
+    font-size: 56px;
+    color: var(--font--color-primary-2);
+    position: relative;
+    height:70px;
+    top: -5px;
+    left:-50px;
+}
+
+.item-price {
+    position: absolute;
+   
+}
+.btn-changesize {
+    height: 30px;
+    padding: 2px 5px;
+    background-color: var(--button--color-primary-1);
+    color: var(--button--color-primary-2);
+    border-color: var(--button--color-primary-2);
+    font-size: 14px;
+}
+
+    .active, .btn-changesize:hover {
+        background-color: var(--button--color-primary-2);
+        color: var(--button--color-primary-1);
+        border-color: var(--button--color-primary-1);
+    }
+
+.btn-order {
+    padding: 0 20px;
+}
+

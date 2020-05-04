@@ -8,6 +8,11 @@ namespace StreetPizza.Controllers
 {
     public class MenuController : Controller
     {
+
+        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
+        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
+        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
+
         private readonly IProductRepository _repository;
         public MenuController(IProductRepository repository)
         {

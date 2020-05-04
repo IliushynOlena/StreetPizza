@@ -2,19 +2,21 @@
     /*BackGroundColors*/
     --bg--color-primary-1: #ecf1f4;
     --bg--color-primary-2: #373844;
-    --bg--color-primary-3: #ffffff;
-    --bg--color-primary-4: #fe4c8d;
+    --bg--color-primary-3: #ffffff; /*white*/
+    --bg--color-primary-4: #fe4c8d; /*pink*/
     /*Text's colors*/
-    --font--color-primary-1: #2c465a;
-    --font--color-primary-2: #fea812;
-    --font--color-primary-3: #14141d;
-    --font--color-primary-4: #ffffff;
-    --font--color-primary-5: #878d91;
-    --font--color-secondary-1: #fe4c8d;
+    --font--color-primary-1: #2c465a; /*grey*/
+    --font--color-primary-2: #fea100; /*orange*/
+    --font--color-primary-3: #14141d; /*black*/
+    --font--color-primary-4: #ffffff; /*white*/
+    --font--color-primary-5: #878d91; /*light-grey*/
+    --font--color-secondary-1: #fe4c8d; /*pink*/
     /*Button's colors*/
-    --button--color-primary-2: #fea100;
+    --button--color-primary-1: #ffffff; /*white*/
+    --button--color-primary-2: #fea100; /*orange*/
+    --button--color-primary-3: #14141d; /*black*/
     /*Fonts*/
-    --font-family--first: 'sintonybold';
-    --font-family--second: 'sintonyregular';
-    --font-family--third: 'playfair_displaybold';
+    --font-family--first: 'roboto_bold';
+    --font-family--second: 'roboto_boldItalic';
+    --font-family--third: 'roboto_thin';
 }

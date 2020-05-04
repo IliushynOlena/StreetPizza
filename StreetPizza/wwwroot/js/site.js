@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//var header = document.getElementByClassName("btns");
+//var btns = header.getElementByClassName("btn-changesize");
+//for (var i = 0; i < btns.length; i++) {
+//    btns[i].addEventListener("click", function () {
+//        var current = document.getElementsByClassName("active");
+//        current[0].className = current[0].className.replace(" active", "");
+//        this.className += " active";
+//    });
+//}
 
-// Write your JavaScript code.

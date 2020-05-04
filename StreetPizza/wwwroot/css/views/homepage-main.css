@@ -1,41 +1,41 @@
-﻿ /*intro*/
+﻿/*intro*/
 
 .homepage-main-intro {
     height: 570px;
-    background-color: black;
-}
-
-.homepage-main-intro-text {
-    height: 570px;
+    background: url("../../img/main-intro.jpg") no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 180px;
-
+    text-shadow: 5px 5px 5px black;
 }
 
-.intro-text-h2-accent {
+.intro-title {
+    margin-bottom: 20px;
+}
+
+.intro-subtitle-accent {
     color: var(--font--color-primary-2);
 }
-.homepage-main-intro-image {
-    background: url("../../img/main-intro.jpg") no-repeat;
-    background-size: cover;
-}
+
 
 
 
 /*other*/
-.homepage-title {
+.title-primary-style {
     padding: 80px 0 20px;
     text-align: center;
-}
-
-.title-secondary-color {
     color: black;
 }
 
+.title-secondary-style {
+    padding: 80px 0 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
 .border-bottom {
-    padding-bottom: 20px;
     border-bottom: 1px solid #d7dee3;
 }
 
@@ -91,9 +91,12 @@
     padding: 80px 0;
 }
 
+.homepage-about-title{
+    color:black;
+}
+
 .homepage-about-text {
     margin: 30px 0;
-    font-family: var(--font-family--second);
     line-height: 1.8em;
 }
 
@@ -132,7 +135,7 @@
 
 /*today special*/
 .homepage-today {
-    background: url("../../img/main-intro.jpg") no-repeat;
+    background: url("../../img/temnaya_derevyannaya_tekstura.jpg") no-repeat;
 }
 
 .homepage-today-block {
