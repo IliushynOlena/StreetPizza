@@ -26,7 +26,10 @@
                     }
                 }
             </div>
-            <div page-model="@Model.PaggingInfo" page-action="Index"></div>
+            <div class="btns-pagination">
+                <div class="btn-group" page-model="@Model.PaggingInfo" page-action="Index" page-classes-enabled="true"
+                     page-class="btn btn-lg" page-class-normal="btn-secondary" page-class-selected="btn-warning"></div>
+            </div>
         </div>
     </div>
 </div>

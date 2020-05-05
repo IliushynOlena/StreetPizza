@@ -7,6 +7,9 @@ using StreetPizza.ViewModels;
 
 namespace StreetPizza.Helpers
 {
+    /// <summary>
+    /// Pagination UI
+    /// </summary>
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkCreator : TagHelper
     {
@@ -21,6 +24,11 @@ namespace StreetPizza.Helpers
         public ViewContext ViewContext { get; set; }
         public PaggingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+        public bool PageClassesEnabled { get; set; } = false;
+        public string PageClass { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
@@ -29,6 +37,11 @@ namespace StreetPizza.Helpers
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
+                if(PageClassesEnabled)
+                {
+                    tag.AddCssClass(PageClass);
+                    tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
                 tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);
             }
