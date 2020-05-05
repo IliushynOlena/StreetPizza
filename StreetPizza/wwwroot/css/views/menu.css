@@ -20,7 +20,7 @@
 }
 
 #menu-items {
-    padding: 142px 0;
+    padding-top: 142px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -88,4 +88,10 @@
 .btn-order {
     padding: 0 20px;
     box-shadow: 5px 5px 5px black;
+}
+
+.btns-pagination{
+    display:flex;
+    justify-content:center;
+    padding: 20px;
 }

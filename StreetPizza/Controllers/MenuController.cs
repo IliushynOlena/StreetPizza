@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using StreetPizza.Data.Interfaces;
 using StreetPizza.Data.Models;
+using StreetPizza.ViewModels;
 
 namespace StreetPizza.Controllers
 {
@@ -14,14 +15,23 @@ namespace StreetPizza.Controllers
         // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
 
         private readonly IProductRepository _repository;
+        public int PageSize = 3;
         public MenuController(IProductRepository repository)
         {
             _repository = repository;
         }
-        public IActionResult Index()
+        public ViewResult Index(int productPage = 1) => View(new ProductListViewModel
         {
-            List<Product> Products = _repository.Products.ToList();
-            return View(Products);
-        }
+            Products = _repository.Products
+            .OrderBy(p => p.Id)
+            .Skip((productPage - 1) * PageSize)
+            .Take(PageSize),
+            PaggingInfo = new PaggingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = PageSize,
+                TotalItems = _repository.Products.Count()
+            }
+        });
     }
 }
