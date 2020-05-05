@@ -1,0 +1,53 @@
+﻿@import '../helpers/variables.css';
+
+.paydel-page {
+    position: relative;
+    background-size: cover;
+}
+
+.paydel-title {
+    color: var(--font--color-primary-1);
+    font-family: var(--font-family--third);
+    font-size: 48px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+}
+.paydel-text-line {
+    width:90%;
+    border: 0.5px solid var(--font--color-primary-5);
+}
+
+.paydel-text {
+    margin: 30px 0;
+    font-family: var(--font-family--second);
+    font-size:22px;
+    line-height: 1.8em;
+    text-align:center;
+}
+
+.paydel-subtitle {
+    font-size: 35px;
+    text-align: center;
+    color: var(--font--color-primary-5);
+    font-family: var(--font-family--first);
+}
+
+.paydel-subtitle-text {
+    margin: 30px 0;
+    font-family: var(--font-family--second);
+    color: var(--font--color-primary-1);
+    font-size: 20px;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.paydel_terms ol, ul {
+    margin: 0 0 1em 3em;
+    color: var(--font--color-primary-5);
+    padding: 0;
+}
