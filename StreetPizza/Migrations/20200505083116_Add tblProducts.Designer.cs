@@ -9,7 +9,7 @@ using StreetPizza.Data;
 namespace StreetPizza.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20200430101330_Add tblProducts")]
+    [Migration("20200505083116_Add tblProducts")]
     partial class AddtblProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
