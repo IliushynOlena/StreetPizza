@@ -18,8 +18,8 @@
     padding: 30px;
 }
 .paydel-text-line {
-    width:90%;
-    border: 0.5px solid var(--font--color-primary-5);
+    width:95%;
+    border: 1px solid var(--font--color-primary-5);
 }
 
 .paydel-text {
@@ -50,4 +50,9 @@
     margin: 0 0 1em 3em;
     color: var(--font--color-primary-5);
     padding: 0;
+}
+
+.delivery-photo-cont{
+    justify-content:center;
+    display:flex;
 }
