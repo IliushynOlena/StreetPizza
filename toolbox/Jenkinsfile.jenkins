@@ -58,7 +58,7 @@ pipeline  {
             steps {
                 echo " ============== starting StreetPizza =================="
                sh '''
-                docker run -d --restart=always --name streetpizza -p 80:80 maksutroman/streetpizza
+                docker run -d --restart=always --name streetpizza -p 99:5000 maksutroman/streetpizza
                 '''
             }
           }
