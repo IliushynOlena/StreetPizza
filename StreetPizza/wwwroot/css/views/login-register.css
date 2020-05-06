@@ -1,0 +1,17 @@
+﻿@import '../helpers/variables.css';
+
+
+.log-reg-line {
+    width: 95%;
+    border: 1px solid var(--font--color-primary-5);
+}
+
+#customer_login:before {
+    display: block;
+    border-right: 1px solid #ddd;
+    height: 100%;
+    position: absolute;
+    content: ' ';
+    right: 50%;
+    top: 0;
+}
