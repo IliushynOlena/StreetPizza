@@ -3,7 +3,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:62547",
+      "applicationUrl": "http://0.0.0.0:62547",
       "sslPort": 44370
     }
   },
@@ -18,7 +18,7 @@
     "StreetPizza": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5000",
+      "applicationUrl": "https://0.0.0.0:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
