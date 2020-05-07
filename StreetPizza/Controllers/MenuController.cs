@@ -20,18 +20,23 @@ namespace StreetPizza.Controllers
         {
             _repository = repository;
         }
-        public ViewResult Index(string category, int productPage = 1) => View(new ProductListViewModel
-        {
-            Products = _repository.Products
-            .OrderBy(p => p.Id)
-            .Skip((productPage - 1) * PageSize)
-            .Take(PageSize),
-            PaggingInfo = new PaggingInfo
+        public ViewResult Index(string category, int productPage = 1)
+            => View(new ProductListViewModel
             {
-                CurrentPage = productPage,
-                ItemsPerPage = PageSize,
-                TotalItems = _repository.Products.Count()
-            }
-        });
+                Products = _repository.Products
+                    .Where(p => category == null || p.Category == category)
+                    .OrderBy(p => p.Id)
+                    .Skip((productPage - 1) * PageSize)
+                    .Take(PageSize),
+
+                PaggingInfo = new PaggingInfo
+                {
+                    CurrentPage = productPage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = _repository.Products.Count()
+                },
+
+                CurrentCategory = category
+            });
     }
 }

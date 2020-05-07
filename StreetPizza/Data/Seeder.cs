@@ -18,7 +18,8 @@ namespace StreetPizza.Data
                 Ingredients = "Соус томатний, сир Моцарелла і свіжі томати",          
                 PriceMedium = 125,
                 PriceLarge = 175,
-                IsFavorite = true
+                IsFavorite = true,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -29,7 +30,8 @@ namespace StreetPizza.Data
                 " апетитна салямі, сир Дор Блю, що просто тане в роті.",
                 PriceMedium = 155,
                 PriceLarge = 255,
-                IsFavorite = true
+                IsFavorite = true,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -41,7 +43,8 @@ namespace StreetPizza.Data
                 "і свіжа зелень.",
                 PriceMedium = 159,
                 PriceLarge = 259,
-                IsFavorite = true
+                IsFavorite = true,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -53,7 +56,8 @@ namespace StreetPizza.Data
                 "трохи зелені і пікантне часникове масло.",
                 PriceMedium = 169,
                 PriceLarge = 269,
-                IsFavorite = false
+                IsFavorite = false,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -65,7 +69,8 @@ namespace StreetPizza.Data
                 "гарячий гострий перець, трохи зелені і пікантне часникове масло.",
                 PriceMedium = 169,
                 PriceLarge = 269,
-                IsFavorite = false
+                IsFavorite = false,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -75,7 +80,8 @@ namespace StreetPizza.Data
                 Ingredients = "Соус томатний, сир Моцарелла в поєднанні з ковбаскою Пепероні.",
                 PriceMedium = 179,
                 PriceLarge = 279,
-                IsFavorite = false
+                IsFavorite = false,
+                Category = "Pizza"
             });
 
             SeedProducts(context, new Product
@@ -86,7 +92,111 @@ namespace StreetPizza.Data
                 "солодка кукурудза, печериці, копчене куряче філе, свіжа зелень.",
                 PriceMedium = 169,
                 PriceLarge = 269,
-                IsFavorite = false
+                IsFavorite = false,
+                Category = "Pizza"
+            });
+            #endregion
+
+            #region tblProducts - Сендвічі
+            SeedProducts(context, new Product
+            {
+                Name = "Сендвіч з шинкою",
+                Img = "sendvich-s-vetchinoy.png",
+                Ingredients = "Хрустка чіабатта, ніжний соус цезар, свіжий огірок, " +
+                "стиглі томати, маринована синя цибуля, соковита шинка, мікс салату",
+                PriceLarge = 85,
+                IsFavorite = false,
+                Category = "Sandwich"
+            });
+
+            SeedProducts(context, new Product
+            {
+                Name = "Сендвіч з салямі",
+                Img = "sendvich-s-salyami.jpg",
+                Ingredients = "Хрустка чіабатта, ніжний вершковий сир, свіжий огірок, " +
+                "стиглі томати, маринована синя цибуля, апетитна салямі, мікс салату",
+                PriceLarge = 85,
+                IsFavorite = false,
+                Category = "Sandwich"
+            });
+
+            SeedProducts(context, new Product
+            {
+                Name = "Сендвіч з куркою",
+                Img = "sendvich-s-kuritsey.jpg",
+                Ingredients = "Хрустка чіабатта, ніжний вершковий сир, свіжий огірок, " +
+               "стиглі томати, маринована синя цибуля, апетитна салямі, мікс салату",
+                PriceLarge = 89,
+                IsFavorite = false,
+                Category = "Sandwich"
+            });
+
+            SeedProducts(context, new Product
+            {
+                Name = "Сендвіч з лососем",
+                Img = "sendvich-s-lososem.jpg",
+                Ingredients = "Хрустка чіабатта, сирний соус, свіжий огірок, " +
+                "стиглі томати, маринована синя цибуля, копчений лосось, мікс салату",
+                PriceLarge = 109,
+                IsFavorite = false,
+                Category = "Sandwich"
+            });
+            #endregion
+
+            #region tblProducts - Суші
+            SeedProducts(context, new Product
+            {
+                Name = "Капа Макі",
+                Img = "kapa-maki.png",
+                Ingredients = "Рис, норі, свіжий огірок і кунжут",
+                PriceLarge = 39,
+                IsFavorite = false,
+                Category = "Sushi"
+            });
+            SeedProducts(context, new Product
+            {
+                Name = "Макі авокадо",
+                Img = "maki-avokado.jpg",
+                Ingredients = "Рис, норі, стиглий авокадо в поєднанні з соусом Унагі і кунжутом",
+                PriceLarge = 49,
+                IsFavorite = false,
+                Category = "Sushi"
+            });
+            SeedProducts(context, new Product
+            {
+                Name = "Кунсей макі",
+                Img = "kunsey-maki.jpg",
+                Ingredients = "Рис, норі з копченим лососем",
+                PriceLarge = 69,
+                IsFavorite = false,
+                Category = "Sushi"
+            });
+            SeedProducts(context, new Product
+            {
+                Name = "Сяке макі",
+                Img = "syake-maki.jpg",
+                Ingredients = "Рис, норі з ніжним лососем",
+                PriceLarge = 69,
+                IsFavorite = false,
+                Category = "Sushi"
+            });
+            SeedProducts(context, new Product
+            {
+                Name = "Унагі макі",
+                Img = "unagi-maki.jpg",
+                Ingredients = "Рис, норі, пікантний вугор в поєднанні з соусом Унагі і кунжут",
+                PriceLarge = 99,
+                IsFavorite = false,
+                Category = "Sushi"
+            });
+            SeedProducts(context, new Product
+            {
+                Name = "Філадельфія",
+                Img = "filadelfiya.png",
+                Ingredients = "Рис, норі з ніжним лососем, свіжим огірком та сиром Філадельфія",
+                PriceLarge = 125,
+                IsFavorite = false,
+                Category = "Sushi"
             });
             #endregion
         }
