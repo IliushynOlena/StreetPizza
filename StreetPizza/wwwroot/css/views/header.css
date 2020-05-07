@@ -40,6 +40,7 @@
     .nav-link:hover {
         text-decoration: none;
         cursor: pointer;
+        transition: .2s linear;
         color: var(--font--color-primary-2);
     }
 

@@ -44,8 +44,8 @@ namespace StreetPizza.Helpers
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 if(PageClassesEnabled)
                 {
-                    tag.AddCssClass(PageClass);
                     tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                    tag.AddCssClass(PageClass);
                 }
                 tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);
