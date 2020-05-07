@@ -54,10 +54,40 @@ namespace StreetPizza
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                      name: "pagination",
-                      template: "Menu/Page{productPage}",
-                    defaults: new { Controller = "Menu", action = "Index" });
+                      name: null,
+                      template: "Menu/{category}/Page{productPage:int}",
+                      defaults: new { Controller = "Menu", action = "Index" });
 
+                routes.MapRoute(
+                      name: null,
+                      template: "Menu/Page{productPage:int}",
+                      defaults: new
+                      {
+                          Controller = "Menu",
+                          action = "Index",
+                          productPage = 1
+                      });
+
+                routes.MapRoute(
+                      name: null,
+                      template: "Menu/{category}",
+                      defaults: new
+                      {
+                          Controller = "Menu",
+                          action = "Index",
+                          productPage = 1
+                      });
+
+                routes.MapRoute(
+                      name: null,
+                      template: "Menu/",
+                      defaults: new
+                      {
+                          Controller = "Menu",
+                          action = "Index",
+                          productPage = 1
+                      });
+              
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
