@@ -1,40 +1,38 @@
 ﻿@model ProductListViewModel
 
 @{
-    ViewData["Title"] = "Tours";
+    ViewData["Title"] = "Menu";
 }
 
 <div class="menu-page">
     <h1 class="menu-title">Menu</h1>
     <div class="menu-body">
         <div class="container">
-            <div id="menu-items">
-                @{
-                    foreach (var item in Model.Products)
-                    {
-                        <div class="menu-item">
-                            <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
-                            <div class="item-body">
-                                <h2 class="item-name">@item.Name</h2>
-                                <p class="item-description">@item.Ingredients</p>
-                                <div class="item-order-info">
-                                    <div class="item-price">@item.PriceLarge</div>
-                                    <button class="btn-order">В кошик</button>
+                <div id="menu-categories">
+                    @await  Component.InvokeAsync("CategoriesMenu")
+                </div>
+
+                <div id="menu-items">
+                    @{
+                        foreach (var item in Model.Products)
+                        {
+                            <div class="menu-item">
+                                <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
+                                <div class="item-body">
+                                    <h2 class="item-name">@item.Name</h2>
+                                    <p class="item-description">@item.Ingredients</p>
+                                    <div class="item-order-info">
+                                        <div class="item-price">@item.PriceLarge</div>
+                                        <button class="btn-order">В кошик</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
-                }
-            </div>
-            <div class="btns-pagination">
-                <div class="btn-group" page-model="@Model.PaggingInfo" page-action="Index" page-classes-enabled="true"
-                     page-class="btn btn-lg" page-class-normal="btn-secondary" page-class-selected="btn-warning"></div>
-            </div>
+                </div>
+                <div class="btns-pagination" page-model="@Model.PaggingInfo" page-action="Index" page-classes-enabled="true"
+                     page-class="btn-link" page-class-normal="btn-page" page-class-selected="btn-page selected"
+                     page-url-category="@Model.CurrentCategory"></div>
         </div>
     </div>
-</div>
-
-<div class="container">
-
-
 </div>
