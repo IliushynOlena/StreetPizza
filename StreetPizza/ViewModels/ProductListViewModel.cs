@@ -10,5 +10,6 @@ namespace StreetPizza.ViewModels
     {
         public IEnumerable<Product> Products { get; set; }
         public PaggingInfo PaggingInfo { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

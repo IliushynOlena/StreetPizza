@@ -20,7 +20,7 @@ namespace StreetPizza.Controllers
         {
             _repository = repository;
         }
-        public ViewResult Index(int productPage = 1) => View(new ProductListViewModel
+        public ViewResult Index(string category, int productPage = 1) => View(new ProductListViewModel
         {
             Products = _repository.Products
             .OrderBy(p => p.Id)

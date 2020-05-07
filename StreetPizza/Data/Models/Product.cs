@@ -20,5 +20,6 @@ namespace StreetPizza.Data.Models
         public ushort PriceMedium { get; set; }
         public ushort PriceLarge { get; set; }
         public bool IsFavorite { get; set; }
+        public string Category { get; set; }
     }
 }
