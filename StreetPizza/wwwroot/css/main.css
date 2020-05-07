@@ -2,6 +2,8 @@
 @import "helpers/settings.css";
 @import "helpers/variables.css";
 
+@import "components/category-menu.css";
+
 @import "views/header.css";
 @import "views/footer.css";
 
