@@ -14,9 +14,11 @@
     content: ' ';
     right: 50%;
 }
+
 .separator-line:after {
     clear: both;
 }
+
 .separator-text {
     position: absolute;
     right: 50%;
@@ -34,13 +36,13 @@
 }
 
 /*titles*/
-.log-reg-title-block{
-    margin-bottom:30px;
+.log-reg-title-block {
+    margin-bottom: 30px;
 }
 
 .log-reg-title {
     font-family: var(--font-family--third);
-    font-size:35px;
+    font-size: 35px;
     color: var(--font--color-primary-3);
 }
 
@@ -56,10 +58,11 @@
 }
 
 /*login redirect*/
-.log-reg-title.link{
-    display:block;
-    height:100%;
+.log-reg-title.link {
+    display: block;
+    height: 100%;
 }
+
     .log-reg-title.link:hover {
         font-weight: 700;
         text-decoration: none;
@@ -67,11 +70,10 @@
     }
 
 /*form*/
-#log-reg-body label {
-    color: #333e48;
+.log-reg-label {
+    color: var(--font--color-primary-1);
     font-weight: 700;
     margin-bottom: 10px;
-    margin-top: 20px;
     font-size: 18px;
 }
 
@@ -79,48 +81,47 @@
     color: var(--font--color-secondary-2);
 }
 
-.form-login {
-    display: block;
-}
-
-.input-text-login {
+.log-reg-text {
     border: 1px solid #ccc;
     border-radius: 50px;
     box-sizing: border-box;
     outline: 0;
     padding: .563em 1.2em;
     width: 100%;
+    margin-bottom: 10px;
 }
 
-.input-text-reg {
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    box-sizing: border-box;
-    outline: 0;
-    padding: .563em 1.2em;
-    width: 100%;
+.log-reg-valid {
+    font-family: var(--font-family--third);
+    color: var(--font--color-secondary-2);
+    font-weight: 700;
 }
 
-.btn-sign-up {
+    .log-reg-valid ul {
+        color: var(--font--color-secondary-2);
+    }
+
+.btn-sign-in-up {
     margin-top: 20px;
     border-radius: 50px;
     transition: all .2s ease-in-out 0s;
 }
 
 
-
 @media (max-width: 767px) {
     .separator-text {
         top: 0;
     }
+
     .separator-line {
         height: 50px;
     }
+
         .separator-line:before {
             border-top: 1px solid rgba(0, 0, 0, 0.1);
-            border-right:none;
+            border-right: none;
             width: 100%;
-            top:50%;
-            right:0;
+            top: 50%;
+            right: 0;
         }
 }

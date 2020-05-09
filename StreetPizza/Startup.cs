@@ -40,9 +40,11 @@ namespace StreetPizza
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
             //додаємо сервіси Identity
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<EFDbContext>();
-            
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<EFDbContext>();
+
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -94,7 +96,7 @@ namespace StreetPizza
                           action = "Index",
                           productPage = 1
                       });
-              
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
