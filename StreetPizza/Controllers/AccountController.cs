@@ -19,6 +19,12 @@ namespace StreetPizza.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
         [HttpGet]
         public IActionResult Register()
         {
@@ -43,7 +49,7 @@ namespace StreetPizza.Controllers
                 if(result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 foreach(var error in result.Errors)
