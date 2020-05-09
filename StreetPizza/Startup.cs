@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,10 +36,13 @@ namespace StreetPizza
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //підключаємся до бд
+            //додаємо сервіси EntityFramework
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
-
+            //додаємо сервіси Identity
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EFDbContext>();
+            
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -50,6 +54,9 @@ namespace StreetPizza
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+
+            //підключення сервісів Identity
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
