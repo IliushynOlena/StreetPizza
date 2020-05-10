@@ -35,9 +35,6 @@
                         <a class="nav-link" href="#">About</a>
                         <a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a>
                         <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                        </a>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <form method="post" asp-controller="Account" asp-action="Logout" class="log-reg-block">
@@ -54,6 +51,9 @@
                                 </a>
                             </div>
                         }
+                         <a class="nav-link" href="#">
+                            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                        </a>
                     </nav>
                 </div>
             </div>
