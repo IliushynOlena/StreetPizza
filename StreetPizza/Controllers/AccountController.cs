@@ -28,7 +28,7 @@ namespace StreetPizza.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -39,7 +39,14 @@ namespace StreetPizza.Controllers
                 //якщо успішно - логінимо його
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
@@ -71,18 +78,18 @@ namespace StreetPizza.Controllers
                     UserName = model.Email,
                     Email = model.Email
                 };
-                
+
                 //пробуємо додати в таблицю
                 var result = await _userManager.CreateAsync(user, model.Password);
-                
+
                 //якщо успішно - логінимо його
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
 
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }

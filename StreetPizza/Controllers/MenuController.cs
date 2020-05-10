@@ -8,6 +8,7 @@ using StreetPizza.ViewModels;
 
 namespace StreetPizza.Controllers
 {
+    [Authorize]
     public class MenuController : Controller
     {
 
