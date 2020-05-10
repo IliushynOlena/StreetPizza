@@ -19,12 +19,42 @@ namespace StreetPizza.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
+        //Login
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //пробуємо додати в таблицю
+                var result = await _signInManager.PasswordSignInAsync(
+                    model.Email, model.Password, model.RememberMe, false);
+
+                //якщо успішно - логінимо його
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+            }
+            return View(model);
+        }
+        //Logout
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        //Register
         [HttpGet]
         public IActionResult Register()
         {

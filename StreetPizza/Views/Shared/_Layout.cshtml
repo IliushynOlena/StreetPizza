@@ -42,17 +42,14 @@
                         {
                             <form method="post" asp-controller="Account" asp-action="Logout" class="log-reg-block">
                                 <button type="submit" class="nav-link nav-userlink">
-                                    @User.Identity.Name
-                                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                    Logout @User.Identity.Name
                                 </button>
                             </form>
                         }
                         else
                         {
                             <div class="log-reg-block">
-                                <a class="nav-link nav-userlink" asp-controller="Account" asp-action="Register">
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                <a class="nav-link nav-userlink" asp-controller="Account" asp-action="Login">
                                     <i class="fa fa-user fa-lg" aria-hidden="true"></i>
                                 </a>
                             </div>
