@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace StreetPizza.ViewModels
 {
@@ -9,6 +10,8 @@ namespace StreetPizza.ViewModels
 
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", controller: "Account")]
+
         public string Email { get; set; }
 
         [Required]
@@ -20,5 +23,8 @@ namespace StreetPizza.ViewModels
         [Compare("Password", 
             ErrorMessage = "Password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string Country { get; set; }
     }
 }

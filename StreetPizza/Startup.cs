@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StreetPizza.Data;
 using StreetPizza.Data.Concrete;
 using StreetPizza.Data.Interfaces;
+using StreetPizza.Data.Models;
 
 namespace StreetPizza
 {
@@ -35,7 +36,7 @@ namespace StreetPizza
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
             //додаємо сервіси Identity
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<EFDbContext>();
@@ -52,7 +53,7 @@ namespace StreetPizza
             app.UseStatusCodePages();
             app.UseStaticFiles();
 
-            //підключення сервісів Identity
+            //підключення сервісів Identity(Аутентифікації)
             app.UseAuthentication();
 
             app.UseMvc(routes =>

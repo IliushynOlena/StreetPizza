@@ -4,7 +4,7 @@ using StreetPizza.Data.Models;
 
 namespace StreetPizza.Data
 {
-    public class EFDbContext : IdentityDbContext
+    public class EFDbContext : IdentityDbContext<ApplicationUser>
     {
         public EFDbContext(DbContextOptions<EFDbContext> options) : base(options)
         {
