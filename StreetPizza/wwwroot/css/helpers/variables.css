@@ -13,9 +13,8 @@
     --font--color-secondary-1: #fe4c8d; /*pink*/
     --font--color-secondary-2: #F30A0A; /*red*/
     /*Button's colors*/
-    --button--color-primary-1: #ffffff; /*white*/
-    --button--color-primary-2: #fea100; /*orange*/
-    --button--color-primary-3: #14141d; /*black*/
+    --button--color-primary-1: #fea100; /*orange*/
+    --button--color-primary-2: #d1880a; /*dark-orange*/
     /*Fonts*/
     --font-family--first: 'roboto_bold';
     --font-family--second: 'roboto_boldItalic';

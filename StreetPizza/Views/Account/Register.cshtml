@@ -25,49 +25,51 @@
                 <span class="separator-text">or</span>
             </div>
 
-            <div class=" col-md-8">
+            <div class="col-md-8">
                 <div class="log-reg-title-block">
                     <h2 class="log-reg-title">Sign up</h2>
                     <hr class="log-reg-text-line" id="short-line" />
                     <p class="log-reg-subtitle">Create your own account!</p>
                 </div>
-                <form method="post" class="register-form">
-                    <div class="form-group">
-                        <label asp-for="Name" class="log-reg-label">
-                            Name <span class="required">*</span>
-                        </label>
-                        <input asp-for="Name" class="log-reg-text" />
-                        <span asp-validation-for="Name" class="log-reg-valid"></span>
+                <form method="post">
+                    <div class="form-fields">
+                        <div class="form-group">
+                            <label asp-for="Name" class="log-reg-label">
+                                Name <span class="required">*</span>
+                            </label>
+                            <input asp-for="Name" class="log-reg-text" />
+                            <span asp-validation-for="Name" class="log-reg-valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="log-reg-label">
+                                Email <span class="required">*</span>
+                            </label>
+                            <input asp-for="Email" class="log-reg-text" />
+                            <span asp-validation-for="Email" class="log-reg-valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="log-reg-label">
+                                Password <span class="required">*</span>
+                            </label>
+                            <input asp-for="Password" class="log-reg-text" />
+                            <div asp-validation-summary="ModelOnly" class="log-reg-valid"></div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword" class="log-reg-label">
+                                Confirm Password <span class="required">*</span>
+                            </label>
+                            <input asp-for="ConfirmPassword" class="log-reg-text" />
+                            <span asp-validation-for="ConfirmPassword" class="log-reg-valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Country" class="log-reg-label">
+                                Country
+                            </label>
+                            <input asp-for="Country" class="log-reg-text" />
+                            <span asp-validation-for="Country" class="log-reg-valid"></span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="log-reg-label">
-                            Email <span class="required">*</span>
-                        </label>
-                        <input asp-for="Email" class="log-reg-text" />
-                        <span asp-validation-for="Email" class="log-reg-valid"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="log-reg-label">
-                            Password <span class="required">*</span>
-                        </label>
-                        <input asp-for="Password" class="log-reg-text" />
-                        <div asp-validation-summary="ModelOnly" class="log-reg-valid"></div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ConfirmPassword" class="log-reg-label">
-                            Confirm Password <span class="required">*</span>
-                        </label>
-                        <input asp-for="ConfirmPassword" class="log-reg-text" />
-                        <span asp-validation-for="ConfirmPassword" class="log-reg-valid"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Country" class="log-reg-label">
-                            Country
-                        </label>
-                        <input asp-for="Country" class="log-reg-text" />
-                        <span asp-validation-for="Country" class="log-reg-valid"></span>
-                    </div>
-                    <button type="submit" class="btn-sign-in-up">Sign up</button>
+                    <button type="submit" class="btn-first btn-color-first btn-round">Sign up</button>
                 </form>
             </div>
 

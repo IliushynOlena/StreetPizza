@@ -11,13 +11,15 @@
     font-family: var(--font-family--second);
     font-size: 30px;
     color: var(--font--color-primary-3);
+    transition: color .2s linear;
 }
 
-.header-logo:hover {
-    text-decoration: none;
-    color: var(--font--color-primary-2);
-    cursor: pointer;
-}
+    .header-logo:hover {
+        transition: .2s linear;
+        text-decoration: none;
+        color: var(--font--color-primary-2);
+        cursor: pointer;
+    }
 
 /*Nav*/
 
@@ -27,7 +29,7 @@
     width: auto;
     font-family: var(--font-family--first);
     font-size: 18px;
-    background-color: var(--button--color-primary-1);
+    background-color: Window;
     color: var(--font--color-primary-1);
     text-transform: uppercase;
     text-decoration: none;
@@ -38,7 +40,6 @@
         text-decoration: none;
         cursor: pointer;
         transition: .2s linear;
-        background-color: var(--button--color-primary-1);
         color: var(--font--color-primary-2);
     }
 
@@ -52,7 +53,8 @@
 
 .nav-userlink {
     font-family: var(--font-family--second);
+    font-size: 14px;
     color: var(--font--color-primary-3);
     text-transform: none;
+    border-style:none;
 }
-

@@ -20,6 +20,9 @@ namespace StreetPizza.Controllers
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> IsEmailInUse(string email)
         {
+            //шукаємо юзера по імейлу
+            //якщо немає, то ок
+            //якщо є - вертаємо повідомлення, що емейл вже існує
             var user = await _userManager.FindByEmailAsync(email);
             if(user == null)
             {
@@ -44,13 +47,14 @@ namespace StreetPizza.Controllers
         {
             if (ModelState.IsValid)
             {
-                //пробуємо додати в таблицю
+                //пробуємо залогінити юзера
+                //якщо успішно - вертаємось на сторінку
                 var result = await _signInManager.PasswordSignInAsync(
                     model.Email, model.Password, model.RememberMe, false);
-
-                //якщо успішно - логінимо його
+             
                 if (result.Succeeded)
                 {
+                    //Url.IsLocalUrl(returnUrl) - для захисту від перенаправлення на сторонні сайти
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
@@ -93,9 +97,9 @@ namespace StreetPizza.Controllers
                 };
 
                 //пробуємо додати в таблицю
-                var result = await _userManager.CreateAsync(user, model.Password);
-
                 //якщо успішно - логінимо його
+                var result = await _userManager.CreateAsync(user, model.Password);
+             
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);

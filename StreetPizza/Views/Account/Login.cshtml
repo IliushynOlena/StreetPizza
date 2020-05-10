@@ -18,30 +18,31 @@
                     <p class="log-reg-subtitle">Log in to your account!</p>
                 </div>
                 <form method="post" class="register-form">
-                    <div asp-validation-summary="All" class="log-reg-valid"></div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="log-reg-label">
-                            Email <span class="required">*</span>
-                        </label>
-                        <input asp-for="Email" class="log-reg-text" />
-                        <span asp-validation-for="Email" class="log-reg-valid"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="log-reg-label">
-                            Password <span class="required">*</span>
-                        </label>
-                        <input asp-for="Password" class="log-reg-text" />
-                        <span asp-validation-for="Password" class="log-reg-valid"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe" />
-                                @Html.DisplayNameFor(m=> m.RememberMe)
+                    <div class="form-fields">
+                        <div class="form-group">
+                            <label asp-for="Email" class="log-reg-label">
+                                Email <span class="required">*</span>
                             </label>
+                            <input asp-for="Email" class="log-reg-text" />
+                            <span asp-validation-for="Email" class="log-reg-valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="log-reg-label">
+                                Password <span class="required">*</span>
+                            </label>
+                            <input asp-for="Password" class="log-reg-text" />
+                            <span asp-validation-for="Password" class="log-reg-valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="RememberMe">
+                                    <input asp-for="RememberMe" />
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn-sign-in-up">Sign in</button>
+                    <button type="submit" class="btn-first btn-color-first btn-round">Sign in</button>
                 </form>
             </div>
 

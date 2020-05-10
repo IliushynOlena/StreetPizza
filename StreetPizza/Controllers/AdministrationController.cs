@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StreetPizza.ViewModels;
@@ -17,18 +14,23 @@ namespace StreetPizza.Controllers
             _roleManager = roleManager;
         }
 
+        //Get all roles
+        [HttpGet]
+        public IActionResult ListRoles()
+            => View(_roleManager.Roles);
+
         //Create role
         [HttpGet]
         public IActionResult CreateRole()
-        {
-            return View();
-        }
+            => View();
+
 
         [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
             {
+                //створюємо нову роль і пробуємо додати в таблицю
                 var role = new IdentityRole
                 {
                     Name = model.RoleName
@@ -36,9 +38,10 @@ namespace StreetPizza.Controllers
 
                 var result = await _roleManager.CreateAsync(role);
 
+                //якщо успішно - повертаємось на головну
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ListRoles", "Administration");
                 }
 
                 foreach (var error in result.Errors)

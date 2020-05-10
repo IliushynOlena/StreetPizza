@@ -70,6 +70,10 @@
     }
 
 /*active form*/
+.form-fields{
+    margin-bottom:20px;
+}
+
 .log-reg-label {
     color: var(--font--color-primary-1);
     font-weight: 700;
@@ -100,12 +104,6 @@
     .log-reg-valid ul {
         color: var(--font--color-secondary-2);
     }
-
-.btn-sign-in-up {
-    margin-top: 20px;
-    border-radius: 50px;
-    transition: all .2s ease-in-out 0s;
-}
 
 
 @media (max-width: 767px) {

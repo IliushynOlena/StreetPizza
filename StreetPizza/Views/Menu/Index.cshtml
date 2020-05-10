@@ -12,7 +12,7 @@
                 @await Component.InvokeAsync("CategoriesMenu")
             </div>
 
-            <button class="btn btn-primary">Додати</button>
+            <a href ="#" class="btn-first btn-primary">Додати</a>
 
             <div id="menu-items">
                 @{
@@ -25,10 +25,12 @@
                                 <p class="item-description">@item.Ingredients</p>
                                 <div class="item-order-info">
                                     <div class="item-price">@item.PriceLarge</div>
-                                    <button class="btn-order">В кошик</button>
+                                    <a href ="#" class="btn-first btn-color-first">В кошик</a>
                                 </div>
-                                <button class="btn btn-warning">Редагувати</button>
-                                <button class="btn btn-danger">Видалити</button>
+                                <div class="item-order-info">
+                                    <a href ="#" class="btn-first btn-warning">Редагувати</a>
+                                    <a href ="#" class="btn-first btn-danger">Видалити</a>
+                                </div>
                             </div>
                         </div>
                     }
