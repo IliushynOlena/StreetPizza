@@ -1,4 +1,5 @@
-﻿function toggleDeleteSpan(id, isShowed) {
+﻿// показуємо/ховаємо панель видалення ролей
+function toggleDeleteSpan(id, isShowed) {
     if (isShowed) {
         $(`#shortDeleteSpan_${id}`).hide();
         $(`#longDeleteSpan_${id}`).show();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -69,7 +70,7 @@ namespace StreetPizza.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
-                return View("NotFound");
+                return View("Error");
             }
 
             var model = new EditRoleViewModel
@@ -99,7 +100,7 @@ namespace StreetPizza.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with Id = {model.Id} cannot be found";
-                return View("NotFound");
+                return View("Error");
             }
             else
             {
@@ -128,7 +129,7 @@ namespace StreetPizza.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
-                return View("NotFound");
+                return View("Error");
             }
 
             ViewBag.roleId = role.Id;
@@ -158,7 +159,7 @@ namespace StreetPizza.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
-                return View("NotFound");
+                return View("Error");
             }
 
             for (int i = 0; i < model.Count; i++)
@@ -205,19 +206,27 @@ namespace StreetPizza.Controllers
             if (role == null)
             {
                 ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
-                return View("NotFound");
+                return View("Error");
             }
-
-            var result = await _roleManager.DeleteAsync(role);
-
-            if (result.Succeeded)
+            try
             {
-                return RedirectToAction("ListRoles", "Administration");
+                var result = await _roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles", "Administration");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
             }
-
-            foreach (var error in result.Errors)
+            catch(Exception ex)
             {
-                ModelState.AddModelError("", error.Description);
+                ViewBag.ErrorMessage = $"\"{role.Name}\" role is in use";
+                return View("Error");
             }
 
             return View("ListRoles");
