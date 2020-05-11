@@ -1,84 +1,28 @@
-﻿@import '../helpers/variables.css';
+﻿@import "helpers/variables.css";
 
-
-.log-reg-line {
-    width: 95%;
-    border: 1px solid var(--font--color-primary-5);
+#log-reg-body {
+    padding: 30px;
 }
 
-#short-line {
-    border: 1px solid var(--button--color-primary-2);
-    width: 6em;
-    margin-left: 0;
-}
+/*separator-line*/
 
-.log-reg-title {
-    color: var(--font--color-primary-3);
-    font-family: var(--font-family--third);
-}
-
-.before-login-text {
-    margin-bottom: 2.143em;
-    font-family: var(--font-family--third);
-    font-size: 21px;
-}
-
-.before-register-text {
-    margin-bottom: 1.143em;
-    font-family: var(--font-family--third);
-    font-size: 21px;
-}
-
-.required {
-    color: var(--font--color-secondary-2);
-}
-
-.form-login {
+.separator-line:before {
     display: block;
+    border-right: 1px solid #ddd;
+    height: 100%;
+    position: absolute;
+    content: ' ';
+    right: 50%;
 }
 
-.input-text-login {
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    box-sizing: border-box;
-    outline: 0;
-    padding: .563em 1.2em;
-    width: 90%;
-}
-.input-text-reg {
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    box-sizing: border-box;
-    outline: 0;
-    padding: .563em 1.2em;
-    width: 90%;
+.separator-line:after {
+    clear: both;
 }
 
-#customer-login {
-    padding: 2.5em 2.143em;
-}
-
-    #customer-login label {
-        color: #333e48;
-        font-weight: 700;
-        margin-bottom: 10px;
-        margin-top: 20px;
-        font-size:18px;
-    }
-.btn-sign-in {
-    margin-top: 20px;
-    border-radius: 50px;
-    transition: all .2s ease-in-out 0s;
-}
-.btn-sign-up {
-    margin-top: 20px;
-    border-radius: 50px;
-    transition: all .2s ease-in-out 0s;
-}
-.or-text {
+.separator-text {
     position: absolute;
     right: 50%;
-    top: 50%;
+    top: 40%;
     transform: translate(50%);
     width: 50px;
     height: 50px;
@@ -91,40 +35,91 @@
     z-index: 1;
 }
 
-.log-collumns {
-    padding-left: 15px;
-    padding-right: 1.071em;
-    display: block;
-}
-.reg-collumns {
-    padding-right: 15px;
-    padding-left: 5.857em;
-    display: block;
-}
-#customer-login:before {
-    display: block;
-    border-right: 1px solid #ddd;
-    height: 500px;
-    position: absolute;
-    content: ' ';
-    right: 50%;
-    
-   
+/*titles*/
+.log-reg-title-block {
+    margin-bottom: 50px;
 }
 
-#customer_login:after {
-    clear: both;
+.log-reg-title {
+    font-family: var(--font-family--third);
+    font-size: 35px;
+    color: var(--font--color-primary-3);
 }
+
+#short-line {
+    border: 1px solid var(--button--color-primary-2);
+    width: 100px;
+    margin-left: 0;
+}
+
+.log-reg-subtitle {
+    font-family: var(--font-family--third);
+    font-size: 21px;
+}
+
+/*redirect page*/
+.log-reg-title.link {
+    display: block;
+    height: 100%;
+}
+
+    .log-reg-title.link:hover {
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--font--color-primary-2);
+    }
+
+/*active form*/
+.form-fields{
+    margin-bottom:20px;
+}
+
+.log-reg-label {
+    color: var(--font--color-primary-1);
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.required {
+    color: var(--font--color-secondary-2);
+}
+
+.log-reg-text {
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    outline: 0;
+    padding: .563em 1.2em;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.log-reg-valid {
+    font-family: var(--font-family--third);
+    color: var(--font--color-secondary-2);
+    font-weight: 700;
+}
+
+    .log-reg-valid ul {
+        color: var(--font--color-secondary-2);
+    }
+
+
 @media (max-width: 767px) {
-    .reg-collumns {
-        padding-top:20px;
-        padding-left: 15px;
-        padding-right: 1.071em;
+    .separator-text {
+        top: 0;
     }
-    .or-text{
-        display:none;
+
+    .separator-line {
+        height: 50px;
     }
-    #customer-login:before {
-        display: none;
-    }
+
+        .separator-line:before {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: none;
+            width: 100%;
+            top: 50%;
+            right: 0;
+        }
 }

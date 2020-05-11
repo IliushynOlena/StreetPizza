@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-    background-color: #ffffff;
+    min-height: 80px;
+    background-color: var(--bg--color-primary-3);
     border-bottom: 1px solid #d7dee3;
 }
 
@@ -11,26 +11,25 @@
     font-family: var(--font-family--second);
     font-size: 30px;
     color: var(--font--color-primary-3);
+    transition: color .2s linear;
 }
 
-.header-logo:hover {
-    text-decoration: none;
-    color: var(--font--color-primary-2);
-    cursor: pointer;
-}
+    .header-logo:hover {
+        transition: .2s linear;
+        text-decoration: none;
+        color: var(--font--color-primary-2);
+        cursor: pointer;
+    }
 
 /*Nav*/
 
-.nav {
-    display: flex;
-    align-items: center;
-}
-
 .nav-link {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 10px;
+    width: auto;
     font-family: var(--font-family--first);
     font-size: 18px;
+    background-color: Window;
     color: var(--font--color-primary-1);
     text-transform: uppercase;
     text-decoration: none;
@@ -47,3 +46,15 @@
         .nav-link:hover:after {
             opacity: 1;
         }
+
+.log-reg-block {
+    margin-left: auto;
+}
+
+.nav-userlink {
+    font-family: var(--font-family--second);
+    font-size: 14px;
+    color: var(--font--color-primary-3);
+    text-transform: none;
+    border-style:none;
+}

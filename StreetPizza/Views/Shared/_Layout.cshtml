@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> signInManager;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,17 +26,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a class="header-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <a class="header-logo" asp-controller="Home" asp-action="Index">
                         StreetPizza
                     </a>
-                </div>              
-                <div class="col-md-9 nav">
-                    <nav>
+                </div>
+                <div class="col-md-9">
+                    <nav class="nav">
                         <a class="nav-link" href="#">About</a>
-                        <a class="nav-link" asp-area="" asp-controller="Menu" asp-action="Index">Menu</a>
-                        <a class="nav-link" asp-area="" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
-                        <a class="nav-link" asp-area="" asp-controller="LoginRegister" asp-action="Index"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a>
+                        <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form method="post" asp-controller="Account" asp-action="Logout" class="log-reg-block">
+                                <button type="submit" class="nav-link nav-userlink">
+                                    Logout @User.Identity.Name
+                                </button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="log-reg-block">
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">
+                                    <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        }
+                         <a class="nav-link" href="#">
                             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                         </a>
                     </nav>
@@ -188,8 +206,10 @@
     </footer>
 
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -208,16 +228,16 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script>
-        // Add active class to the current button (highlight it)
-        //var header = document.getElementById("btns");
-        //var btns = header.getElementsByClassName("btn-changesize");
-        //for (var i = 0; i < btns.length; i++) {
-        //    btns[i].addEventListener("click", function () {
-        //        var current = document.getElementsByClassName("active");
-        //        current[0].className = current[0].className.replace(" active", "");
-        //        this.className += " active";
-        //    });
-        //}
+                                                // Add active class to the current button (highlight it)
+                                                //var header = document.getElementById("btns");
+                                                //var btns = header.getElementsByClassName("btn-changesize");
+                                                //for (var i = 0; i < btns.length; i++) {
+                                                //    btns[i].addEventListener("click", function () {
+                                                //        var current = document.getElementsByClassName("active");
+                                                //        current[0].className = current[0].className.replace(" active", "");
+                                                //        this.className += " active";
+                                                //    });
+                                                //}
     </script>
 
     @RenderSection("Scripts", required: false)

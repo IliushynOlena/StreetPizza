@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StreetPizza.Data.Interfaces;
 using StreetPizza.Data.Models;
@@ -7,6 +8,7 @@ using StreetPizza.ViewModels;
 
 namespace StreetPizza.Controllers
 {
+    [Authorize]
     public class MenuController : Controller
     {
 

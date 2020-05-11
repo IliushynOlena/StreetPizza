@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StreetPizza.Data;
 using StreetPizza.Data.Concrete;
 using StreetPizza.Data.Interfaces;
+using StreetPizza.Data.Models;
 
 namespace StreetPizza
 {
@@ -35,9 +32,14 @@ namespace StreetPizza
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //підключаємся до бд
+            //додаємо сервіси EntityFramework
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
+            //додаємо сервіси Identity
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<EFDbContext>();
 
             services.AddTransient<IProductRepository, ProductRepository>();
 
@@ -50,6 +52,9 @@ namespace StreetPizza
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+
+            //підключення сервісів Identity(Аутентифікації)
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
@@ -87,7 +92,7 @@ namespace StreetPizza
                           action = "Index",
                           productPage = 1
                       });
-              
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

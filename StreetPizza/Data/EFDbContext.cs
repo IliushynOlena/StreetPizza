@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StreetPizza.Data.Models;
 
 namespace StreetPizza.Data
 {
-    public class EFDbContext : DbContext
+    public class EFDbContext : IdentityDbContext<ApplicationUser>
     {
         public EFDbContext(DbContextOptions<EFDbContext> options) : base(options)
         {
