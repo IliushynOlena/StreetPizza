@@ -1,10 +1,10 @@
-﻿//var header = document.getElementByClassName("btns");
-//var btns = header.getElementByClassName("btn-changesize");
-//for (var i = 0; i < btns.length; i++) {
-//    btns[i].addEventListener("click", function () {
-//        var current = document.getElementsByClassName("active");
-//        current[0].className = current[0].className.replace(" active", "");
-//        this.className += " active";
-//    });
-//}
-
+﻿function toggleDeleteSpan(id, isShowed) {
+    if (isShowed) {
+        $(`#shortDeleteSpan_${id}`).hide();
+        $(`#longDeleteSpan_${id}`).show();
+    }
+    else {
+        $(`#shortDeleteSpan_${id}`).show();
+        $(`#longDeleteSpan_${id}`).hide();
+    }
+};

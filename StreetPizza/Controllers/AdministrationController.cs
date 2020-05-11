@@ -174,7 +174,7 @@ namespace StreetPizza.Controllers
                 {
                     result = await _userManager.AddToRoleAsync(user, role.Name);
                 }
-                else if(!(model[i].IsSelected) && isUserInRole)
+                else if (!(model[i].IsSelected) && isUserInRole)
                 {
                     result = await _userManager.RemoveFromRoleAsync(user, role.Name);
                 }
@@ -183,16 +183,44 @@ namespace StreetPizza.Controllers
                     continue;
                 }
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
-                    if(i >= (model.Count - 1))
-                    { 
+                    if (i >= (model.Count - 1))
+                    {
                         return RedirectToAction("EditRole", new { Id = roleId });
                     }
                 }
             }
 
             return RedirectToAction("EditRole", new { Id = roleId });
+        }
+
+        //Delete role
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то видаляємо модель
+            var role = await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+
+            var result = await _roleManager.DeleteAsync(role);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("ListRoles", "Administration");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View("ListRoles");
         }
     }
 }
