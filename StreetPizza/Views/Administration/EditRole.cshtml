@@ -1,0 +1,78 @@
+﻿@model EditRoleViewModel
+
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+<div class="log-reg-page">
+    <div class="container">
+        <hr class="log-reg-text-line" />
+
+        <div class="col-md-6">
+            <div class="log-reg-title-block">
+                <h2 class="log-reg-title">Administration page</h2>
+                <hr class="log-reg-text-line" id="short-line" />
+                <p class="log-reg-subtitle">@ViewBag.Title</p>
+            </div>
+
+            <form method="post">
+                <div class="form-fields">
+                    
+                    <div class="form-group row">
+                        <div class="col-md-2  col-form-label ">
+                            <label asp-for="RoleId" class="log-reg-label">Id</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input asp-for="RoleId" disabled class="log-reg-text" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2 col-form-label">
+                            <label asp-for="RoleName" class="log-reg-label">RoleName</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input asp-for="RoleName" class="log-reg-text" />
+                        </div>
+                        <span asp-validation-for="RoleName" class="log-reg-valid"></span>
+                    </div>
+                    <div asp-validation-summary="All" class="log-reg-valid"></div>
+                    
+                    <div class="form-fields">
+                        <button type="submit" class="btn-first btn-color-first btn-round">Update</button>
+                        <a asp-controller="Administration" asp-action="ListRoles"
+                           class="btn-first btn-color-second btn-round">Cancel</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="card">
+                <div class="card-header log-reg-label">
+                    <h3 class="log-reg-title"> Users in this role</h3>
+                </div>
+                <div class="card-body log-reg-label">
+                    @if (Model.Users.Any())
+                    {
+                        foreach (var user in Model.Users)
+                        {
+                            <h5 class="log-reg-label">@user</h5>
+                        }
+                    }
+                    else
+                    {
+                        <h5 class="log-reg-label">None at the moment </h5>
+                    }
+                </div>
+                <div class="card-footer">
+                    <a class="btn-first btn-color-first btn-round"
+                       asp-controller="Administration" asp-action="AddUser">
+                        Add Users
+                    </a>
+                    <a class="btn-first btn-color-first btn-round"
+                       asp-controller="Administration" asp-action="RemoveUser">
+                        Remove Users
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

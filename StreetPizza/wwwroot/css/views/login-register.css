@@ -42,12 +42,11 @@
 
 .log-reg-title {
     font-family: var(--font-family--third);
-    font-size: 35px;
     color: var(--font--color-primary-3);
 }
 
 #short-line {
-    border: 1px solid var(--button--color-primary-2);
+    border: 1px solid var(--button--color-primary-1);
     width: 100px;
     margin-left: 0;
 }
@@ -61,6 +60,7 @@
 .log-reg-title.link {
     display: block;
     height: 100%;
+    font-size: 35px;
 }
 
     .log-reg-title.link:hover {

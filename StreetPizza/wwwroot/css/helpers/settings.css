@@ -75,6 +75,19 @@ body {
         color: var(--font--color-primary-4);
     }
 
+.btn-color-second {
+    background-color: var(--button--color-primary-3);
+    color: var(--font--color-primary-2);
+    transition: background-color .3s linear;
+    border: 1px solid var(--font--color-primary-2);
+}
+
+    .btn-color-second:hover {
+        transition: .3s linear;
+        color: var(--font--color-primary-2);
+        background-color: #ffffff;
+    }
+
 .btn-round {
     border-radius: 50px;
     padding: 12px 40px;

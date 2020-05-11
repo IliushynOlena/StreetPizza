@@ -12,7 +12,7 @@
             <div class="log-reg-title-block">
                 <h2 class="log-reg-title">Administration page</h2>
                 <hr class="log-reg-text-line" id="short-line" />
-                <p class="log-reg-subtitle">All roles</p>
+                <p class="log-reg-subtitle">@ViewBag.Title</p>
             </div>
             <a class="btn-first btn-color-first btn-round"
                asp-controller="Administration" asp-action="CreateRole">
@@ -30,10 +30,13 @@
                             RoleId: @role.Id
                         </div>
                         <div class="card-body log-reg-label">
-                            <h5 > RoleName: @role.Name</h5>
+                            <h5> RoleName: @role.Name</h5>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn-first btn-warning btn-round">Edit</a>
+                            <a class="btn-first btn-warning btn-round"
+                               asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">
+                                Edit
+                            </a>
                             <a href="#" class="btn-first btn-danger btn-round">Delete</a>
                         </div>
                     </div>
