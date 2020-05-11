@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StreetPizza.Data.Models;
@@ -115,6 +116,83 @@ namespace StreetPizza.Controllers
                 }
             }
             return View(model);
+        }
+
+        //Update users in role
+        [HttpGet]
+        public async Task<IActionResult> EditUsersInRole(string roleId)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то відбираємо всіх юзерів з такою ролю
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("NotFound");
+            }
+
+            ViewBag.roleId = role.Id;
+            ViewBag.roleName = role.Name;
+
+            var model = new List<UserRoleViewModel>();
+
+            foreach (var user in _userManager.Users)
+            {
+                var userRoleViewModel = new UserRoleViewModel
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    IsSelected = await _userManager.IsInRoleAsync(user, role.Name) ? true : false
+                };
+                model.Add(userRoleViewModel);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUsersInRole(List<UserRoleViewModel> model, string roleId)
+        {
+            //шукаємо роль по id
+            //якщо є - перебираємо модель
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("NotFound");
+            }
+
+            for (int i = 0; i < model.Count; i++)
+            {
+                var user = await _userManager.FindByIdAsync(model[i].UserId);
+                var isUserInRole = await _userManager.IsInRoleAsync(user, role.Name);
+
+                IdentityResult result = null;
+
+                //перевіряємо чи відмічені юзери не мають дану роль, якщо так - додаємо роль
+                //перевіряємо чи невідмічені юзери мають дану роль, якщо так - видаляємо роль
+                if (model[i].IsSelected && !(isUserInRole))
+                {
+                    result = await _userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if(!(model[i].IsSelected) && isUserInRole)
+                {
+                    result = await _userManager.RemoveFromRoleAsync(user, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+
+                if(result.Succeeded)
+                {
+                    if(i >= (model.Count - 1))
+                    { 
+                        return RedirectToAction("EditRole", new { Id = roleId });
+                    }
+                }
+            }
+
+            return RedirectToAction("EditRole", new { Id = roleId });
         }
     }
 }

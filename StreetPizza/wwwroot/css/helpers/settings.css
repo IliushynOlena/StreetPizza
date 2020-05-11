@@ -76,7 +76,7 @@ body {
     }
 
 .btn-color-second {
-    background-color: var(--button--color-primary-3);
+    background-color: none;
     color: var(--font--color-primary-2);
     transition: background-color .3s linear;
     border: 1px solid var(--font--color-primary-2);
