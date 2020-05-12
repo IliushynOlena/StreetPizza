@@ -13,23 +13,29 @@
             <div class="log-reg-page">
 
                 <div class="log-reg-block">
-                    <h2 class="log-reg-title">Your profile</h2>
+                    <h2 class="log-reg-title">Мій профіль</h2>
                     <hr class="log-reg-text-line" id="short-line" />
-                    <p class="log-reg-subtitle">This is info about your profile</p>
+                    <p class="log-reg-subtitle">Тут є вся інформація про ваш аккаунт</p>
                 </div>
 
                 <div class="log-reg-block-bottom">
                     <div class="form-group">
                         <label asp-for="UserName" class="log-reg-label">
-                            UserName
+                            Пошта
                         </label>
                         <input asp-for="UserName" disabled class="log-reg-text" />
                     </div>
                     <div class="form-group">
                         <label asp-for="Country" class="log-reg-label">
-                            Country
+                            Країна
                         </label>
                         <input asp-for="Country" disabled class="log-reg-text" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Role" class="log-reg-label">
+                            Права доступу
+                        </label>
+                        <input asp-for="Role" disabled class="log-reg-text" />
                     </div>
                 </div>
 
@@ -44,19 +50,19 @@
                 <div class="log-reg-block">
                     <form method="post" asp-controller="Account" asp-action="Logout">
                         <button type="submit" class="log-reg-title link">
-                            Sign out
+                            Вихід
                             <hr class="log-reg-text-line" id="short-line" />
-                            <p class="log-reg-subtitle">If you wish to leave us</p>
+                            <p class="log-reg-subtitle">Якщо ви хочете вийти з аккаунту</p>
                         </button>
                     </form>
                 </div>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    <div class="log-reg-block-bottom">
+                    <div class="log-reg-block">
                         <a class="log-reg-title link" asp-controller="Administration" asp-action="ListRoles">
-                            Manage Roles
+                            Права доступу
                             <hr class="log-reg-text-line" id="short-line" />
-                            <p class="log-reg-subtitle">Remote all roles</p>
+                            <p class="log-reg-subtitle"> Керування правами доступу</p>
                         </a>
                     </div>
                 }

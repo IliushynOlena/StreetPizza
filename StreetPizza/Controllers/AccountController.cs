@@ -30,7 +30,7 @@ namespace StreetPizza.Controllers
             }
             else
             {
-                return Json($"Email {email} is already in use");
+                return Json("Така пошта вже зареєстрована");
             }
         }
 
@@ -62,7 +62,7 @@ namespace StreetPizza.Controllers
                     }
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Невірні дані");
             }
             return View(model);
         }
@@ -97,6 +97,8 @@ namespace StreetPizza.Controllers
 
                 if (result.Succeeded)
                 {
+                    var role = "User";
+                    await _userManager.AddToRoleAsync(user, role);
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -118,11 +120,19 @@ namespace StreetPizza.Controllers
             {
                 return View("Error");
             }
+
             var model = new ProfileViewModel
             {
                 UserName = user.UserName,
                 Country = user.Country
             };
+
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                model.Role += role + " ";
+            }
+                
             return View(model);
         }
 

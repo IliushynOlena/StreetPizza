@@ -12,29 +12,29 @@
         <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
 
             <div class="log-reg-block">
-                <h2 class="log-reg-title">Administration page</h2>
+                <h2 class="log-reg-title">Сторінка адміністратора</h2>
                 <hr class="log-reg-text-line" id="short-line" />
-                <p class="log-reg-subtitle">@ViewBag.Title</p>
+                <p class="log-reg-subtitle">Редагувати права</p>
             </div>
 
             <div class="log-reg-block">
                 <form method="post">
 
                     <div class="form-group">
-                        <label asp-for="Id" class="log-reg-label">Role Id</label>
+                        <label asp-for="Id" class="log-reg-label">Id</label>
                         <input asp-for="Id" disabled class="log-reg-text" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="RoleName" class="log-reg-label">RoleName</label>
+                        <label asp-for="RoleName" class="log-reg-label">Назва</label>
                         <input asp-for="RoleName" class="log-reg-text" />
                         <span asp-validation-for="RoleName" class="log-reg-valid"></span>
                     </div>
                     <div asp-validation-summary="All" class="log-reg-valid"></div>
 
                     <div class="log-reg-block">
-                        <button type="submit" class="btn-first btn-color-first btn-round">Update</button>
+                        <button type="submit" class="btn-first btn-color-first btn-round">Оновити</button>
                         <a asp-controller="Administration" asp-action="ListRoles"
-                           class="btn-first btn-color-second btn-round">Cancel</a>
+                           class="btn-first btn-color-second btn-round">Повернутись</a>
                     </div>
                 </form>
             </div>
@@ -42,7 +42,7 @@
             <div class="log-reg-block-bottom">
                 <div class="card">
                     <div class="card-header log-reg-label">
-                        <h3 class="log-reg-title"> Users in this role</h3>
+                        <h3 class="log-reg-title">Список користувачів з даними правами</h3>
                     </div>
                     <div class="card-body log-reg-label">
                         @if (Model.Users.Any())
@@ -60,7 +60,7 @@
                     <div class="card-footer">
                         <a class="btn-first btn-color-first btn-round"
                            asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id">
-                            Add remove users
+                            Змінити
                         </a>
                     </div>
                 </div>

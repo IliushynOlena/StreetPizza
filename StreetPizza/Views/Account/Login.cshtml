@@ -9,14 +9,14 @@
 
     <div class="row">
 
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="log-reg-page">
 
                 <div class="log-reg-block">
-                    <h2 class="log-reg-title">Sign in</h2>
+                    <h2 class="log-reg-title">Вхід</h2>
                     <hr class="log-reg-text-line" id="short-line" />
-                    <p class="log-reg-subtitle">Welcome back!</p>
-                    <p class="log-reg-subtitle">Log in to your account!</p>
+                    <p class="log-reg-subtitle">З поверненням!</p>
+                    <p class="log-reg-subtitle">Увійдіть до вашого аккаунту!</p>
                 </div>
 
                 <form method="post">
@@ -24,14 +24,14 @@
                         <div asp-validation-summary="All" class="log-reg-valid"></div>
                         <div class="form-group">
                             <label asp-for="Email" class="log-reg-label">
-                                Email <span class="required">*</span>
+                                Пошта <span class="required">*</span>
                             </label>
                             <input asp-for="Email" class="log-reg-text" />
                             <span asp-validation-for="Email" class="log-reg-valid"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Password" class="log-reg-label">
-                                Password <span class="required">*</span>
+                                Пароль <span class="required">*</span>
                             </label>
                             <input asp-for="Password" class="log-reg-text" />
                             <span asp-validation-for="Password" class="log-reg-valid"></span>
@@ -40,12 +40,12 @@
                             <div class="checkbox">
                                 <label asp-for="RememberMe">
                                     <input asp-for="RememberMe" />
-                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                    Запам'ятати мене
                                 </label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn-first btn-color-first btn-round">Sign in</button>
+                    <button type="submit" class="btn-first btn-color-first btn-round">Вхід</button>
                 </form>
 
             </div>
@@ -55,14 +55,14 @@
             <span class="separator-text">or</span>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="log-reg-page">
 
                 <div class="log-reg-block">
                     <a class="log-reg-title link" asp-controller="Account" asp-action="Register">
-                        Sign up
+                        Реєстрація
                         <hr class="log-reg-text-line" id="short-line" />
-                        <p class="log-reg-subtitle">Create your own account!</p>
+                        <p class="log-reg-subtitle">Створіть свій власний аккаунт!</p>
                     </a>
                 </div>
 

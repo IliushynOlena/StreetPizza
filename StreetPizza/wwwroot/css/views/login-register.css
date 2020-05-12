@@ -1,6 +1,4 @@
-﻿@import "helpers/variables.css";
-
-.log-reg-page {
+﻿.log-reg-page {
     display:flex;
     flex-direction:column;
     justify-content:space-between;
@@ -92,7 +90,6 @@
 .log-reg-text {
     border: 1px solid #ccc;
     border-radius: 50px;
-    box-sizing: border-box;
     outline: 0;
     padding: .563em 1.2em;
     width: 100%;

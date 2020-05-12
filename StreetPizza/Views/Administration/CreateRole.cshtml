@@ -12,23 +12,23 @@
         <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
 
             <div class="log-reg-block">
-                <h2 class="log-reg-title">Administration page</h2>
+                <h2 class="log-reg-title">Сторінка адміністратора</h2>
                 <hr class="log-reg-text-line" id="short-line" />
-                <p class="log-reg-subtitle">@ViewBag.Title</p>
+                <p class="log-reg-subtitle">Створити нові права</p>
             </div>
 
             <div class="log-reg-block-bottom">
                 <form method="post" class="register-form">
                     <div class="form-group">
                         <label asp-for="RoleName" class="log-reg-label">
-                            Role Name
+                            Назва
                         </label>
                         <input asp-for="RoleName" class="log-reg-text" />
                         <span asp-validation-for="RoleName" class="log-reg-valid"></span>
                     </div>
-                    <button type="submit" class="btn-first btn-color-first btn-round">Create Role</button>
+                    <button type="submit" class="btn-first btn-color-first btn-round">Створити</button>
                     <a asp-controller="Administration" asp-action="ListRoles"
-                       class="btn-first btn-color-second btn-round">Cancel</a>
+                       class="btn-first btn-color-second btn-round">Повернутись</a>
                 </form>
             </div>
 

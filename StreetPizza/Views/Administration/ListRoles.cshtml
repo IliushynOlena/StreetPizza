@@ -7,22 +7,22 @@
 
 <div class="container">
     <hr class="log-reg-text-line" />
-   
+
     <div class="row">
-       
+
         <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
             <div class="log-reg-page">
 
                 <div class="log-reg-block">
-                    <h2 class="log-reg-title">Administration page</h2>
+                    <h2 class="log-reg-title">Сторінка адміністратора</h2>
                     <hr class="log-reg-text-line" id="short-line" />
-                    <p class="log-reg-subtitle">@ViewBag.Title</p>
+                    <p class="log-reg-subtitle">Права доступу</p>
                 </div>
 
                 <div class="log-reg-block-bottom">
                     <a class="btn-first btn-color-first btn-round"
                        asp-controller="Administration" asp-action="CreateRole">
-                        Add new role
+                        Створити нові права
                     </a>
 
                     <hr class="log-reg-text-line" />
@@ -33,27 +33,27 @@
                         {
                             <div class="card mb-3">
                                 <div class="card-header log-reg-label">
-                                    RoleId: @role.Id
+                                    Id: @role.Id
                                 </div>
                                 <div class="card-body log-reg-label">
-                                    <h5> RoleName: @role.Name</h5>
+                                    <h5>@role.Name</h5>
                                 </div>
                                 <div class="card-footer">
 
                                     <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                                        <a class="btn-first btn-warning btn-round"
+                                           asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">
+                                            Редагувати
+                                        </a>
                                         <span id="shortDeleteSpan_@role.Id">
-                                            <a class="btn-first btn-warning btn-round"
-                                               asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">
-                                                Edit
-                                            </a>
                                             <input type="button" class="btn-first btn-danger btn-round"
-                                                   onclick="toggleDeleteSpan('@role.Id', true)" value="Delete" />
+                                                   onclick="toggleDeleteSpan('@role.Id', true)" value="Видалити" />
                                         </span>
                                         <span id="longDeleteSpan_@role.Id" style="display:none">
-                                            <span class="ml-3 mr-3">Are you sure you want to delete this role?</span>
-                                            <button type="submit" class="btn-first btn-color-first">Yes</button>
+                                            <span class="ml-3 mr-3">Видалити ці права?</span>
+                                            <button type="submit" class="btn-first btn-color-first">Так</button>
                                             <input type="button" class="btn-first btn-color-second"
-                                                   onclick="toggleDeleteSpan('@role.Id', false)" value="No" />
+                                                   onclick="toggleDeleteSpan('@role.Id', false)" value="Ні" />
                                         </span>
                                     </form>
 
