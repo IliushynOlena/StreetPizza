@@ -1,7 +1,10 @@
 ﻿@import "helpers/variables.css";
 
-#log-reg-body {
-    padding: 30px;
+.log-reg-page {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:100%;
 }
 
 /*separator-line*/
@@ -36,11 +39,15 @@
 }
 
 /*titles*/
-.log-reg-title-block {
+.log-reg-block {
     margin-bottom: 50px;
+}
+.log-reg-block-bottom {
+    margin-bottom: 0;
 }
 
 .log-reg-title {
+    border:none;
     font-family: var(--font-family--third);
     color: var(--font--color-primary-3);
 }
@@ -70,9 +77,6 @@
     }
 
 /*active form*/
-.form-fields{
-    margin-bottom:20px;
-}
 
 .log-reg-label {
     color: var(--font--color-primary-1);

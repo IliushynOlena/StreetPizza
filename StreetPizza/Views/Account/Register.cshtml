@@ -4,14 +4,14 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="log-reg-page">
-    <div class="container">
-        <hr class="log-reg-text-line" />
+<div class="container">
+    <hr class="log-reg-text-line" />
 
-        <div class="row justify-content-around" id="log-reg-body">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="log-reg-page">
 
-            <div class="col-md-3">
-                <div class="log-reg-title-block">
+                <div class="log-reg-block">
                     <a class="log-reg-title link" asp-controller="Account" asp-action="Login">
                         Sign in
                         <hr class="log-reg-text-line" id="short-line" />
@@ -19,27 +19,25 @@
                         <p class="log-reg-subtitle">Log in to your account!</p>
                     </a>
                 </div>
-            </div>
 
-            <div class="col-md-1 separator-line">
-                <span class="separator-text">or</span>
             </div>
+        </div>
 
-            <div class="col-md-8">
-                <div class="log-reg-title-block">
+        <div class="col-md-1 separator-line">
+            <span class="separator-text">or</span>
+        </div>
+
+        <div class="col-md-8">
+            <div class="log-reg-page">
+
+                <div class="log-reg-block">
                     <h2 class="log-reg-title">Sign up</h2>
                     <hr class="log-reg-text-line" id="short-line" />
                     <p class="log-reg-subtitle">Create your own account!</p>
                 </div>
+
                 <form method="post">
-                    <div class="form-fields">
-                        <div class="form-group">
-                            <label asp-for="Name" class="log-reg-label">
-                                Name <span class="required">*</span>
-                            </label>
-                            <input asp-for="Name" class="log-reg-text" />
-                            <span asp-validation-for="Name" class="log-reg-valid"></span>
-                        </div>
+                    <div class="log-reg-block">
                         <div class="form-group">
                             <label asp-for="Email" class="log-reg-label">
                                 Email <span class="required">*</span>
@@ -71,9 +69,10 @@
                     </div>
                     <button type="submit" class="btn-first btn-color-first btn-round">Sign up</button>
                 </form>
-            </div>
 
+            </div>
         </div>
-        <hr class="log-reg-text-line" />
+
     </div>
+    <hr class="log-reg-text-line" />
 </div>

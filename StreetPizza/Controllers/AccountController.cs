@@ -24,7 +24,7 @@ namespace StreetPizza.Controllers
             //якщо немає, то ок
             //якщо є - вертаємо повідомлення, що емейл вже існує
             var user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return Json(true);
             }
@@ -37,10 +37,7 @@ namespace StreetPizza.Controllers
 
         //Login
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
@@ -51,7 +48,7 @@ namespace StreetPizza.Controllers
                 //якщо успішно - вертаємось на сторінку
                 var result = await _signInManager.PasswordSignInAsync(
                     model.Email, model.Password, model.RememberMe, false);
-             
+
                 if (result.Succeeded)
                 {
                     //Url.IsLocalUrl(returnUrl) - для захисту від перенаправлення на сторонні сайти
@@ -79,10 +76,8 @@ namespace StreetPizza.Controllers
 
         //Register
         [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+        public IActionResult Register() => View();
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -99,7 +94,7 @@ namespace StreetPizza.Controllers
                 //пробуємо додати в таблицю
                 //якщо успішно - логінимо його
                 var result = await _userManager.CreateAsync(user, model.Password);
-             
+
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
@@ -111,6 +106,23 @@ namespace StreetPizza.Controllers
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
+            return View(model);
+        }
+
+        //Show profile
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var model = new ProfileViewModel
+            {
+                UserName = user.UserName,
+                Country = user.Country
+            };
             return View(model);
         }
     }
