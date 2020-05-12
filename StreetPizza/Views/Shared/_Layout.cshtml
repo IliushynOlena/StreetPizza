@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-9">
                     <nav class="nav">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">About Us</a>
                         <a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a>
                         <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
                         @if (User.Identity.IsAuthenticated)
@@ -51,7 +51,7 @@
                                 </a>
                             </div>
                         }
-                         <a class="nav-link" href="#">
+                        <a class="nav-link" href="#">
                             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                         </a>
                     </nav>
@@ -76,7 +76,7 @@
                                         <a href="#">Home</a>
                                     </li>
                                     <li id="menu-item-2" class="menu-item-all">
-                                        <a href="#">About Us</a>
+                                        <a asp-controller="AboutUs">About Us</a>
                                     </li>
                                     <li id="menu-item-3" class="menu-item-all">
                                         <a href="#">Menu</a>
