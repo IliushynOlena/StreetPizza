@@ -53,8 +53,12 @@
 
 .nav-userlink {
     font-family: var(--font-family--second);
-    font-size: 14px;
+    font-size: 18px;
     color: var(--font--color-primary-3);
     text-transform: none;
-    border-style:none;
 }
+    .nav-userlink:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: var(--font--color-primary-2);
+    }

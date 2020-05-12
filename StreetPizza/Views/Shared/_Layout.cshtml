@@ -39,7 +39,11 @@
                             <div class="profile-block">
                                 <a class="nav-link nav-userlink"
                                    asp-controller="Account" asp-action="Profile">
-                                    @User.Identity.Name
+                                    <span>@User.Identity.Name</span>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                    <i class="fa fa-diamond" aria-hidden="true"></i>
+                                    }
                                 </a>
                             </div>
                         }
@@ -51,9 +55,9 @@
                                 </a>
                             </div>
                         }
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                        </a>
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                            </a>
                     </nav>
                 </div>
             </div>

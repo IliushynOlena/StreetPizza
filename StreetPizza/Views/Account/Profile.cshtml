@@ -50,15 +50,16 @@
                         </button>
                     </form>
                 </div>
-
-                <div class="log-reg-block-bottom">
-                    <a class="log-reg-title link" asp-controller="Administration" asp-action="ListRoles">
-                        Manage Roles
-                        <hr class="log-reg-text-line" id="short-line" />
-                        <p class="log-reg-subtitle">Remote all roles</p>
-                    </a>
-                </div>
-
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <div class="log-reg-block-bottom">
+                        <a class="log-reg-title link" asp-controller="Administration" asp-action="ListRoles">
+                            Manage Roles
+                            <hr class="log-reg-text-line" id="short-line" />
+                            <p class="log-reg-subtitle">Remote all roles</p>
+                        </a>
+                    </div>
+                }
             </div>
         </div>
 
