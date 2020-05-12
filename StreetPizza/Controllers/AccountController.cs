@@ -125,5 +125,9 @@ namespace StreetPizza.Controllers
             };
             return View(model);
         }
+
+        //Access Denied
+        [HttpGet]
+        public IActionResult AccessDenied() => View();
     }
 }
