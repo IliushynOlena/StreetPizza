@@ -14,7 +14,7 @@
 
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
-                <a class="btn-first btn-primary" asp-controller="CreateProducts" asp-action="Index">Додати</a>
+                <a class="btn-first btn-primary" asp-controller="CreateProducts" asp-action="CreateProduct">Додати</a>
             }
 
             <div id="menu-items">

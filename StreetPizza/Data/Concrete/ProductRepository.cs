@@ -15,5 +15,12 @@ namespace StreetPizza.Data.Concrete
         {
             get { return context.Products; }
         }
+
+        public Product CreateProducts(Product prod)
+        {
+            context.Products.Add(prod);
+            context.SaveChanges();
+            return prod;
+        }
     }
 }
