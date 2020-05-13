@@ -37,7 +37,7 @@ namespace StreetPizza.Controllers
                 string uniqFileName = null;
                 if (model.Img != null)
                 {
-                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img");
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img/pizza");
                     uniqFileName = Guid.NewGuid().ToString() + "_" + model.Img.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqFileName);
                     model.Img.CopyTo(new FileStream(filePath, FileMode.Create));
@@ -70,7 +70,7 @@ namespace StreetPizza.Controllers
             if (prod.Img != null && prod.Img != "no.png")
             {
                 //видаляємо фото з папки wwwroot по заданому шляху
-                string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img", prod.Img);
+                string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img/pizza", prod.Img);
                 System.IO.File.Delete(filePath);
             }
             //видаляємо дані з бази по id
@@ -112,7 +112,7 @@ namespace StreetPizza.Controllers
                 {
                     if (model.ExistImgPath != null)
                     {
-                        string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img", model.ExistImgPath);
+                        string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img/pizza", model.ExistImgPath);
                         System.IO.File.Delete(filePath);
                     }
                     prod.Img = UploadedFile(model);
@@ -129,7 +129,7 @@ namespace StreetPizza.Controllers
             string uniqFileName = null;
             if (model.Img != null)
             {
-                string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img");
+                string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img/pizza");
                 uniqFileName = Guid.NewGuid().ToString() + "_" + model.Img.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
