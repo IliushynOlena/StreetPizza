@@ -1,11 +1,12 @@
 ﻿@model ProductListViewModel
 
+
 @{
     ViewData["Title"] = "Menu";
 }
 
 <div class="menu-page">
-    <h1 class="menu-title">Меню</h1>
+    <h1 class="menu-title">Menu</h1>
     <div class="menu-body">
         <div class="container">
             <div id="menu-categories">
@@ -19,9 +20,27 @@
 
             <div id="menu-items">
                 @{
-                    foreach (Product item in Model.Products)
+                    foreach (var item in Model.Products)
                     {
-                        @await Html.PartialAsync("ProductItemGrid", item)
+                        <div class="menu-item">
+                            <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
+                            <div class="item-body">
+                                <h2 class="item-name">@item.Name</h2>
+                                <p class="item-description">@item.Ingredients</p>
+                                <div class="item-order-info">
+                                    <div class="item-price">@item.PriceLarge</div>
+                                    <a asp-controller="OrderCart" asp-action="addToCart" asp-route-id="@item.Id" class="btn-first btn-color-first">В кошик</a>
+                                </div>
+
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <div class="item-order-info">
+                                        <a href="#" class="btn-first btn-warning">Редагувати</a>
+                                        <a href="#" class="btn-first btn-danger">Видалити</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
                     }
                 }
             </div>
