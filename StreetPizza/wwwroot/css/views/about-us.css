@@ -1,10 +1,5 @@
 ﻿@import '../helpers/variables.css';
 
-.about-us-page {
-    position: relative;
-    background-size: cover;
-}
-
 .about-us-title {
     color: var(--font--color-primary-1);
     font-family: var(--font-family--third);
@@ -28,7 +23,7 @@
     font-family: var(--font-family--second);
     font-size: 22px;
     line-height: 1.8em;
-    text-align: center;
+    text-align: justify;
 }
 
 .about-us-subtitle {
@@ -53,27 +48,26 @@
     padding: 0;
 }
 
-@media (min-width: 850px)
-.about-us-photo-aligncenter {
-    clear: both;
-    display: block;
-    margin: 0 0;
+.choose_pizza {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-bottom:30px;
 }
 
-img {
-    transition: opacity 1s;
-    opacity: 1;
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    border-style: none;
-}
-.choose_pizza {
-    height: 100px;
-    width: 200px;
-    display: block;
-    position: relative;
-    border: 1px solid white;
-    margin: 0 auto;
-   
+@media (min-width: 850px) {
+    .about-us-photo-aligncenter {
+        clear: both;
+        display: block;
+        margin: 0 0;
+    }
+
+    img {
+        transition: opacity 1s;
+        opacity: 1;
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        border-style: none;
+    }
 }

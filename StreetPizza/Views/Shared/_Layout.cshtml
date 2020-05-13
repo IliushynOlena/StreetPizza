@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity;
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -31,9 +29,9 @@
                 </div>
                 <div class="col-md-9">
                     <nav class="nav">
-                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">About Us</a>
-                        <a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a>
-                        <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
+                        <a class="nav-link" asp-controller="AboutUs" asp-action="Index">Про нас</a>
+                        <a class="nav-link" asp-controller="Menu" asp-action="Index">Меню</a>
+                        <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">Оплата та доставка</a>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="profile-block">
@@ -73,29 +71,21 @@
 
                     <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-3">
                         <div id="navigation" class="widget">
-                            <h4 class="widget-title">Navigation</h4>
+                            <h4 class="widget-title">Навігація</h4>
                             <div class="menu-widget-navigation-container">
                                 <ul id="menu-widget-navigation" class="menu">
                                     <li id="menu-item-1" class="menu-item-all">
-                                        <a href="#">Home</a>
+                                        <a asp-controller="Home" asp-action="Index">Головна</a>
+
                                     </li>
                                     <li id="menu-item-2" class="menu-item-all">
-                                        <a asp-controller="AboutUs">About Us</a>
+                                        <a asp-controller="AboutUs" asp-action="Index">Про нас</a>
                                     </li>
                                     <li id="menu-item-3" class="menu-item-all">
-                                        <a href="#">Menu</a>
+                                        <a asp-controller="Menu" asp-action="Index">Меню</a>
                                     </li>
                                     <li id="menu-item-4" class="menu-item-all">
-                                        <a href="#">Reservation</a>
-                                    </li>
-                                    <li id="menu-item-5" class="menu-item-all">
-                                        <a href="#">Recipe</a>
-                                    </li>
-                                    <li id="menu-item-6" class="menu-item-all">
-                                        <a href="#">Blog</a>
-                                    </li>
-                                    <li id="menu-item-7" class="menu-item-all">
-                                        <a href="#">Contact Us</a>
+                                        <a asp-controller="PayDelivery" asp-action="Index">Оплата та доставка</a>
                                     </li>
                                 </ul>
                             </div>
@@ -104,10 +94,10 @@
 
                     <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-5">
                         <div id="news_letter" class="widget">
-                            <h4 class="widget-title">News letter</h4>
+                            <h4 class="widget-title">Оформіть підписку</h4>
                             <div class="progression-studios-social-icons-widget-container">
                                 <div class="progression-studios-social-summary-pro">
-                                    Enter your email address for our newsletter
+                                    Підпишіться на новини нашої піцерії
                                     <div id="mc_embed_signup">
                                         <form action="//progressionstudios.us1.list-manage.com/subscribe/post?u=1a06aa3bca8613232881e8a6e&amp;id=2f5a556941"
                                               method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
@@ -128,7 +118,7 @@
                                                 </div>
                                                 <!-- -- -->
                                                 <div class="clear">
-                                                    <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe"
+                                                    <input type="submit" value="ПІДПИСАТИСЬ" name="subscribe" id="mc-embedded-subscribe"
                                                            class="button" />
                                                 </div>
                                             </div>
@@ -159,41 +149,41 @@
 
                     <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-3">
                         <div id="our_app_avilable" class="widget">
-                            <h4 class="widget-title">Opening Hours</h4>
+                            <h4 class="widget-title">Графік роботи</h4>
                             <ul class="progression-studios-open-hours">
                                 <li>
-                                    <div class="date-day-pro">Monday</div>
-                                    <div class="hours-date-pro">10am - 10pm</div>
+                                    <div class="date-day-pro">Понеділок</div>
+                                    <div class="hours-date-pro">10:00 - 22:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Tuesday</div>
-                                    <div class="hours-date-pro">10am - 10pm</div>
+                                    <div class="date-day-pro">Вівторок</div>
+                                    <div class="hours-date-pro">10:00 - 22:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Wednesday</div>
-                                    <div class="hours-date-pro">10am - 10pm</div>
+                                    <div class="date-day-pro">Середа</div>
+                                    <div class="hours-date-pro">10:00 - 22:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Thursday</div>
-                                    <div class="hours-date-pro">10am - 10pm</div>
+                                    <div class="date-day-pro">Четвер</div>
+                                    <div class="hours-date-pro">10:00 - 22:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Friday</div>
-                                    <div class="hours-date-pro">10am - 10pm</div>
+                                    <div class="date-day-pro">П'ятниця</div>
+                                    <div class="hours-date-pro">10:00 - 22:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Saturday</div>
-                                    <div class="hours-date-pro">9am - 11pm</div>
+                                    <div class="date-day-pro">Субота</div>
+                                    <div class="hours-date-pro">09:00 - 23:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                                 <li>
-                                    <div class="date-day-pro">Sunday</div>
-                                    <div class="hours-date-pro">9am - 11pm</div>
+                                    <div class="date-day-pro">Неділя</div>
+                                    <div class="hours-date-pro">09:00 - 23:00</div>
                                     <div class="clearfix-pro"></div>
                                 </li>
                             </ul>

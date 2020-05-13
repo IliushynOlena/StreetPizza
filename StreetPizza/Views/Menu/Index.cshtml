@@ -19,27 +19,9 @@
 
             <div id="menu-items">
                 @{
-                    foreach (var item in Model.Products)
+                    foreach (Product item in Model.Products)
                     {
-                        <div class="menu-item">
-                            <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
-                            <div class="item-body">
-                                <h2 class="item-name">@item.Name</h2>
-                                <p class="item-description">@item.Ingredients</p>
-                                <div class="item-order-info">
-                                    <div class="item-price">@item.PriceLarge</div>
-                                    <a href="#" class="btn-first btn-color-first">В кошик</a>
-                                </div>
-
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                {
-                                    <div class="item-order-info">
-                                        <a href="#" class="btn-first btn-warning">Редагувати</a>
-                                        <a href="#" class="btn-first btn-danger">Видалити</a>
-                                    </div>
-                                }
-                            </div>
-                        </div>
+                        @await Html.PartialAsync("ProductItemGrid", item)
                     }
                 }
             </div>

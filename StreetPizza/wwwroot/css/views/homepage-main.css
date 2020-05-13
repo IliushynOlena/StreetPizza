@@ -10,12 +10,18 @@
     text-shadow: 5px 5px 5px black;
 }
 
+.intro-title-block
+{
+    margin: 30px 0;
+}
+
 .intro-title {
     margin-bottom: 20px;
 }
 
 .intro-subtitle-accent {
     color: var(--font--color-primary-2);
+    margin-left: 50px;
 }
 
 
@@ -91,12 +97,14 @@
     padding: 80px 0;
 }
 
-.homepage-about-title{
-    color:black;
+.homepage-about-title {
+    color: black;
 }
 
 .homepage-about-text {
     margin: 30px 0;
+    padding-right: 30px;
+    text-align: justify;
     line-height: 1.8em;
 }
 
@@ -144,72 +152,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-
-.homepage-today-item {
-    max-width: 49%;
-    box-shadow: 0 0 20px black;
-    margin-bottom: 20px;
-}
-
-.today-item-image {
-    height: 400px;
-    width: auto;
-}
-
-.today-item-image-1 {
-    background: url("../../img/main-today-1.jpg") no-repeat;
-    background-size: cover;
-}
-
-.today-item-image-2 {
-    background: url("../../img/main-today-2.jpg") no-repeat;
-    background-size: cover;
-}
-
-.today-item-info {
-    background-color: var(--bg--color-primary-3);
-    text-align: center;
-    padding: 0 40px;
-}
-
-.today-item-name {
-    padding-top: 40px;
-}
-
-.today-item-description {
-    padding: 20px 0 40px;
-}
-
-.today-item-price-phone {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-}
-
-.today-item-home {
-    font-family: var(--font-family--first);
-    font-size: 13px;
-    color: var(--font--color-primary-3);
-    text-align: left;
-}
-
-.today-item-delivery {
-    font-family: var(--font-family--first);
-    font-size: 13px;
-    color: var(--font--color-secondary-1);
-}
-
-.today-item-phone {
-    font-family: var(--font-family--first);
-    font-size: 24px;
-    color: var(--font--color-primary-1);
-}
-
-.today-item-price {
-    font-family: var(--font-family--first);
-    font-size: 30px;
-    color: var(--font--color-primary-2);
+    padding-bottom: 30px;
 }
 
 
@@ -218,14 +161,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    height: 120px;
 }
 
 .menu-item-left-part {
-    max-width: 75%;
+    max-width: 80%;
+}
+
+.menu-item-name {
+    text-transform: uppercase;
 }
 
 .menu-item-recipe {
+    text-align: justify;
     padding-top: 5px;
 }
 
