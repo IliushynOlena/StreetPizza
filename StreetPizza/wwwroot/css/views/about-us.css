@@ -54,10 +54,12 @@
 }
 
 @media (min-width: 850px)
-.about-us-photo-aligncenter {
-    clear: both;
-    display: block;
-    margin: 0 0;
+{
+    .about-us-photo-aligncenter {
+        clear: both;
+        display: block;
+        margin: 0 0;
+    }
 }
 
 img {
@@ -72,8 +74,10 @@ img {
     height: 100px;
     width: 200px;
     display: block;
-    position: relative;
-    border: 1px solid white;
     margin: 0 auto;
-   
+    text-align: center;
+}
+.btn-redirect-menu {
+  
+    border-radius: 50px;
 }
