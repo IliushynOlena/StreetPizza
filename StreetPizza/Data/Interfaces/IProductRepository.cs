@@ -9,7 +9,7 @@ namespace StreetPizza.Data.Interfaces
         Product CreateProducts(Product prod);
         Product GetProductById(int id);
         Product DeleteProduct(int id);
-        //Product UpdateProduct(Product prod);
+        Product UpdateProduct(Product prod);
 
     }
 }

@@ -34,7 +34,7 @@
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                 {
                                     <div class="item-order-info">
-                                        <a href="#" class="btn-first btn-warning">Редагувати</a>
+                                        <a class="btn-first btn-warning" asp-controller="CreateProducts" asp-action="Edit" asp-route-id="@item.Id">Редагувати</a>
                                         <a class="btn-first btn-danger" asp-controller="CreateProducts" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
                                     </div>
                                 }

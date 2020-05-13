@@ -79,6 +79,67 @@ namespace StreetPizza.Controllers
             return RedirectToRoute("default", new { controller = "Menu", action = "Index" });
 
         }
+
+        [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            Product prod = _prodRep.GetProductById(id);
+            EditViewModel editViewModel = new EditViewModel
+            {
+                Id = prod.Id,
+                Category = prod.Category,
+                Name = prod.Name,
+                Ingredients = prod.Ingredients,
+                PriceLarge = prod.PriceLarge.ToString(),
+                ExistImgPath = prod.Img
+            };
+            return View(editViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                Product prod = _prodRep.GetProductById(model.Id);
+                prod.Category = model.Category;
+                prod.Name = model.Name;
+                prod.Ingredients = model.Ingredients;
+                prod.PriceLarge = Convert.ToUInt16(model.PriceLarge);
+
+                if (model.Img != null)
+                {
+                    if (model.ExistImgPath != null)
+                    {
+                        string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img", model.ExistImgPath);
+                        System.IO.File.Delete(filePath);
+                    }
+                    prod.Img = UploadedFile(model);
+                }
+
+                _prodRep.UpdateProduct(prod);
+                return RedirectToRoute("default", new { controller = "Menu", action = "Index" });
+            }
+            return View();
+        }
+
+        private string UploadedFile(EditViewModel model)
+        {
+            string uniqFileName = null;
+            if (model.Img != null)
+            {
+                string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img");
+                uniqFileName = Guid.NewGuid().ToString() + "_" + model.Img.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Img.CopyTo(fileStream);
+                }
+            }
+
+            return uniqFileName;
+        }
     }
     
 }
