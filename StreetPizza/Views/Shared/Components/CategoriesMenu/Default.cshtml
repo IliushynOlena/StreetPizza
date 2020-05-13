@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<string>
 
-<a class="btn-link"
+<a class="btn-cat-pag"
    asp-controller="Menu" asp-action="Index" asp-route-category="">
     All
 </a>
 
 @foreach (string category in Model)
 {
-    <a class="btn-link
+    <a class="btn-cat-pag
        @((category == ViewBag.SelectedCategory) ? "selected" : "")"
        asp-controller="Menu" asp-action="Index"
        asp-route-category="@category" asp-route-productPage="1">
