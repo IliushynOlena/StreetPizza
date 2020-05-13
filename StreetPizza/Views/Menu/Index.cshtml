@@ -1,5 +1,6 @@
 ﻿@model ProductListViewModel
 
+
 @{
     ViewData["Title"] = "Menu";
 }
@@ -28,7 +29,7 @@
                                 <p class="item-description">@item.Ingredients</p>
                                 <div class="item-order-info">
                                     <div class="item-price">@item.PriceLarge</div>
-                                    <a href="#" class="btn-first btn-color-first">В кошик</a>
+                                    <a asp-controller="OrderCart" asp-action="addToCart" asp-route-id="@item.Id" class="btn-first btn-color-first">В кошик</a>
                                 </div>
 
                                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
