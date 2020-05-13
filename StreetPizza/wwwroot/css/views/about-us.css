@@ -1,0 +1,79 @@
+﻿@import '../helpers/variables.css';
+
+.about-us-page {
+    position: relative;
+    background-size: cover;
+}
+
+.about-us-title {
+    color: var(--font--color-primary-1);
+    font-family: var(--font-family--third);
+    font-size: 48px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+}
+
+.about-us-text-line {
+    width: 95%;
+    border: 1px solid var(--font--color-primary-5);
+}
+
+.about-us-text {
+    margin: 30px 0;
+    font-family: var(--font-family--second);
+    font-size: 22px;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.about-us-subtitle {
+    font-size: 35px;
+    text-align: center;
+    color: var(--font--color-primary-5);
+    font-family: var(--font-family--first);
+}
+
+.about-us-subtitle-text {
+    margin: 30px 0;
+    font-family: var(--font-family--second);
+    color: var(--font--color-primary-1);
+    font-size: 20px;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.about-us_terms ol, ul {
+    margin: 0 0 1em 3em;
+    color: var(--font--color-primary-5);
+    padding: 0;
+}
+
+@media (min-width: 850px)
+.about-us-photo-aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 0;
+}
+
+img {
+    transition: opacity 1s;
+    opacity: 1;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+.choose_pizza {
+    height: 100px;
+    width: 200px;
+    display: block;
+    position: relative;
+    border: 1px solid white;
+    margin: 0 auto;
+   
+}
