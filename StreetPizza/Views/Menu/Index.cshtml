@@ -35,7 +35,7 @@
                                 {
                                     <div class="item-order-info">
                                         <a href="#" class="btn-first btn-warning">Редагувати</a>
-                                        <a href="#" class="btn-first btn-danger">Видалити</a>
+                                        <a class="btn-first btn-danger" asp-controller="CreateProducts" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
                                     </div>
                                 }
                             </div>
