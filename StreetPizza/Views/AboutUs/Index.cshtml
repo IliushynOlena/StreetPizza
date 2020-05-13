@@ -1,52 +1,117 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "About us";
 }
 
 <div class="about-us-page">
-    <h1 class="about-us-title"> About Us</h1>
-    <hr class="about-us-text-line" />
+    <!-- Заголовок -->
+    <div class="about-us-title-block">
+        <h1 class="about-us-title"> Про нас</h1>
+    </div>
+
+    <!-- Про нас - перший блок -->
     <div class="about-us-body">
         <div class="container">
-            <p class="about-us-text">Pizzeria "StreetPizza"is not just a business for us! We love the work we do, we live it and we work every day to make you, our customers, happier!Within 8 years, we have grown from a small "kiosk" to a strong and well-known brand in our hometown… and this is just the beginning. We know that we are moving in the right direction, as evidenced by the ever-growing number of our regular customers. More than 50,000 pizza connoisseurs in Ivano-Frankivsk are already choosing Pronto Pizza! It is a great honor and a great responsibility for us. That is why we are constantly working on our strengths, as well as on our mistakes, because no one is perfect, but we still strive for perfection in our work.</p>
-            <hr class="about-us-text-line" />
-            <h1 class="about-us-subtitle">Our goal is simple: "Make your life delicious"</h1>
-            <div class="about-us-photo-aligncenter">
-                <img src="~/img/main-about-2.jpg" alt="Alternate Text" />
+            <h2 class="about-us-subtitle border-bottom">Наша історія</h2>
+            <div class="about-us-description-1">
+                <p class="about-us-description-text-1">
+                    Піцерія «Street Pizza» — для нас це не просто бізнес! Ми любимо справу, якою займаємось,
+                    живемо нею і щодня працюємо над тим, щоб робити вас, наших клієнтів, щасливішими.
+                </p>
+                <p class="about-us-description-text-1">
+                    Протягом 8-ми років ми з маленького “кіоска” стали сильним і відомим брендом у нашому рідному
+                    місті…і це лише початок. Ми знаємо, що рухаємось в правильному напрямку, про це свідчить число
+                    наших постійних клієнтів, яке постійно зростає. Вже більше 50 000 поціновувачів піци в Рівному
+                    обирають «Street Pizza»! Для нас це велика честь і велика відповідальність. Тому ми постійно
+                    працюємо над нашими сильними сторонами, а також над помилками, адже ніхто не ідеальний, проте
+                    ми таки прагнемо досконалості в своїй справі.
+                </p>
             </div>
-            <p class="about-us-subtitle-text"> In fact, we have a few secrets of our delicious and hearty dishes, which we do not hide at all, but generously share with all visitors:</p>
-            <div class="about-us_terms">
-                <ol>
-                    <li>Street Pizza uses only the freshest and tastiest products. This is not just an advertising phrase. We work with Ukrainian producers and suppliers, so all ingredients - vegetables, cheeses, meat are natural and environmentally friendly.</li>
-                    <li>The second advantage and indicator of reputation among customers is our pizza delivery, which is a service to save from hunger, which is always ready - 24 hours a day, 7 days a week and is the fastest in Rivne.</li>
-                    <li>We give you a lot of promotions and gifts every day, because we love you and want to share the best we have - our pizza. Once you try our pizza, you will come back again - so we become friends with our customers.</li>
-                    <li>Our dough lasts 24 hours! It is very loose and tender, so reminiscent of grandmother's homemade bread, and after baking in the right oven is covered with a crispy golden crust. It is this technology that has made us so unique and special, thanks to which now everyone can order a pizza with Neapolitan notes and enjoy its taste 100%.</li>
-                    <li>In our menu there are classic and author's pizzas that will turn your ideas about the usual dishes! Unusual combinations, perfect sauces and a variety of fillings will make your day joyful and full.</li>
-
-                </ol>
+            <div>
+                <img class ="about-us-photo" src="~/img/main-about-2.jpg" alt="Alternate Text" />
             </div>
-            <div class="about-us-photo-aligncenter">
-                <img src="~/img/main-about-1.jpg" alt="Alternate Text" />
+        </div>
+    </div>
+
+    <!-- Про нас - другий блок -->
+    <div class="about-us-body-2 p-0 border-top border-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 pl-0">
+                    <div>
+                        <img class="about-us-photo" src="~/img/main-about-1.jpg" alt="Alternate Text" />
+                    </div>
+                </div>
+                <div class="col-md-6 about-us-description-2">
+                    <h2 class="about-us-subtitle-2">
+                        Наші переваги:
+                    </h2>
+                    <div>
+                        <div class="about-us-description-text-2">
+                            <h4>НАЙСВІЖІШІ ПРОДУКТИ</h4>
+                            <p class="about-us-description-text-2 border-bottom">
+                                «Street Pizza» використовує лише найсвіжіші та найсмачніші продукти. Ми співпрацюємо з українськими
+                                виробниками і постачальниками, тому всі інгредієнти – овочі, сири, м’ясо є натуральними та
+                                екологічно чистими.
+                            </p>
+                        </div>
+                        <div class="about-us-description-text-2">
+                            <h4>ШВИДКА ДОСТАВКА</h4>
+                            <p class="about-us-description-text-2 border-bottom">
+                                Друга перевага і показник репутації серед клієнтів – це наша доставка піци, вона ж служба порятунку
+                                від голоду, яка завжди напоготові – 24 години на добу, 7 днів на тиждень і є найшвидшою в Рівному.
+                            </p>
+                        </div>
+                        <div class="about-us-description-text-2">
+                            <h4>НАЗУСТРІЧ ВАМ</h4>
+                            <p class="about-us-description-text-2 border-bottom">
+                                Ми щодня даруємо вам безліч акцій та подарунків, адже любимо вас і хочемо ділитись найкращим, що в
+                                нас є – нашою піцою. Спробувавши нашу піцу один раз, ви повернетесь знову – так ми стаємо друзями з нашими
+                                клієнтами.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr class="about-us-text-line" />
-            <p class="about-us-text"> Street Pizza pizzeria in Rivne: what else is special about our restaurant?</p>
-            <hr class="about-us-text-line" />
-            <p class="about-us-text">
-                The open kitchen allows guests to contemplate the work of chefs, and skilled pizza masters prepare pizza right in front of your eyes! By the way, our kitchen can be seen even from the street window, so guests relaxing on the terrace can also watch the work of our masters!
+        </div>
+    </div>
 
-                Our pizzeria in the city of Rivne has an interesting design and a relaxed atmosphere that helps to quickly relax and enjoy the rest with family. We recommend ordering a bottle of craft beer from our good friends - beer theater "Truth". They helped us create a pering menu, thanks to which the taste of pizza is better revealed in a combo with an intoxicating drink.
-
-                You do not need to leave your workplace or a cozy apartment to eat well, because there is our pizza with delivery! Regular customers and members of the IT club receive discount cards with which you can save for subsequent orders. We are waiting for you at Street Pizza!
-            </p>
-            <div class="about-us-photo-aligncenter">
-                <img src="~/img/main-about-3.jpg" alt="Alternate Text" />
+    <!-- Про нас - третій блок -->
+    <div class="about-us-body">
+        <div class="container">
+            <h2 class="about-us-subtitle border-bottom">Особливість нашої піцерії</h2>
+            <div class="about-us-description-3">
+                <p class="about-us-description-text-1">
+                    Відкрита кухня дозволяє гостям спостерігати за роботою шеф-кухарів, а досвідчені кухарі готують піцу
+                    прямо перед вашими очима! До речі, нашу кухню можна побачити навіть з вікон вулиці, тож гості, які
+                    відпочивають на терасі, також можуть спостерігати за роботою наших майстрів! Наша піцерія в Рівному
+                    має приємний дизайн та невимушену атмосферу, що допомагає швидко розслабитися та насолодитися відпочинком
+                    із сім’єю. Також вам не потрібно залишати своє робоче місце чи затишну квартиру, щоб добре харчуватися, адже
+                    тепер наша піца з доставкою! Постійні клієнти та члени ІТ-клубу отримують дисконтні картки, за допомогою
+                    яких ви можете заощадити на наступні замовлення. Чекаємо у "Street Pizza"!
+                </p>
             </div>
-            <p class="about-us-text">
-                Pronto Pizza can write a long time and a lot about its benefits, but you came here because you want a delicious hot pizza, right? So we advise you to try it once and see for yourself than to read it a hundred times while staying hungry!
-            </p>
+            <div>
+                <img class="about-us-photo" src="~/img/main-about-3.jpg" alt="Alternate Text" />
+            </div>
+            
+        </div>
+    </div>
 
-            <div class="choose_pizza">
-                <a asp-controller="Menu" class="btn-first btn-color-first" style="margin:auto">Choose pizza</a>
+    <!-- Про нас - четвертий блок -->
+    <div class="about-us-body-2 border-top">
+        <div class="container">
+            <div class="about-us-description-3 border-bottom">
+                <h4 class="about-us-description-text-3">
+                    «Street Pizza» може ще довго і багато писати про свої переваги, але ж ви прийшли сюди,
+                    тому що хочете смачної гарячої піци, чи не так? Тому радимо вам один раз спробувати і переконатись,
+                    ніж сто разів прочитати це, залишаючись голодним!
+                </h4>
+            </div>
+            <div class="row">
+                <div class="btn-menu-block">
+                    <a asp-controller="Menu" asp-action="Index" class="btn-first btn-color-first">В меню</a>
+                </div>
             </div>
         </div>
     </div>
