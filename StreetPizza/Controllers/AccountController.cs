@@ -24,23 +24,20 @@ namespace StreetPizza.Controllers
             //якщо немає, то ок
             //якщо є - вертаємо повідомлення, що емейл вже існує
             var user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return Json(true);
             }
             else
             {
-                return Json($"Email {email} is already in use");
+                return Json("Така пошта вже зареєстрована");
             }
         }
 
 
         //Login
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
@@ -51,7 +48,7 @@ namespace StreetPizza.Controllers
                 //якщо успішно - вертаємось на сторінку
                 var result = await _signInManager.PasswordSignInAsync(
                     model.Email, model.Password, model.RememberMe, false);
-             
+
                 if (result.Succeeded)
                 {
                     //Url.IsLocalUrl(returnUrl) - для захисту від перенаправлення на сторонні сайти
@@ -65,7 +62,7 @@ namespace StreetPizza.Controllers
                     }
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Невірні дані");
             }
             return View(model);
         }
@@ -79,10 +76,8 @@ namespace StreetPizza.Controllers
 
         //Register
         [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+        public IActionResult Register() => View();
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -99,9 +94,11 @@ namespace StreetPizza.Controllers
                 //пробуємо додати в таблицю
                 //якщо успішно - логінимо його
                 var result = await _userManager.CreateAsync(user, model.Password);
-             
+
                 if (result.Succeeded)
                 {
+                    var role = "User";
+                    await _userManager.AddToRoleAsync(user, role);
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -113,5 +110,34 @@ namespace StreetPizza.Controllers
             }
             return View(model);
         }
+
+        //Show profile
+        [HttpGet]
+        public async Task<IActionResult> Profile()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            var model = new ProfileViewModel
+            {
+                UserName = user.UserName,
+                Country = user.Country
+            };
+
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                model.Role += role + " ";
+            }
+                
+            return View(model);
+        }
+
+        //Access Denied
+        [HttpGet]
+        public IActionResult AccessDenied() => View();
     }
 }

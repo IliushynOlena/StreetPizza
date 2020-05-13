@@ -1,17 +1,26 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StreetPizza.Data.Models;
 using StreetPizza.ViewModels;
 
 namespace StreetPizza.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdministrationController(RoleManager<IdentityRole> roleManager)
+        public AdministrationController(
+            RoleManager<IdentityRole> roleManager,
+            UserManager<ApplicationUser> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         //Get all roles
@@ -51,6 +60,178 @@ namespace StreetPizza.Controllers
             }
 
             return View(model);
+        }
+
+        //Edit role
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string id)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то створюємо модель
+            var role = await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("Error");
+            }
+
+            var model = new EditRoleViewModel
+            {
+                Id = role.Id,
+                RoleName = role.Name
+            };
+
+            //перебираємо всіх юзерів, якщо співпадають з ролю - додаємо в модель
+            foreach (var user in _userManager.Users)
+            {
+                if (await _userManager.IsInRoleAsync(user, role.Name))
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleViewModel model)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то оновлюємо модель
+            var role = await _roleManager.FindByIdAsync(model.Id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {model.Id} cannot be found";
+                return View("Error");
+            }
+            else
+            {
+                role.Name = model.RoleName;
+                var result = await _roleManager.UpdateAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles", "Administration");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+            return View(model);
+        }
+
+        //Update users in role
+        [HttpGet]
+        public async Task<IActionResult> EditUsersInRole(string roleId)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то відбираємо всіх юзерів з такою ролю
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("Error");
+            }
+
+            ViewBag.roleId = role.Id;
+            ViewBag.roleName = role.Name;
+
+            var model = new List<UserRoleViewModel>();
+
+            foreach (var user in _userManager.Users)
+            {
+                var userRoleViewModel = new UserRoleViewModel
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    IsSelected = await _userManager.IsInRoleAsync(user, role.Name) ? true : false
+                };
+                model.Add(userRoleViewModel);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUsersInRole(List<UserRoleViewModel> model, string roleId)
+        {
+            //шукаємо роль по id
+            //якщо є - перебираємо модель
+            var role = await _roleManager.FindByIdAsync(roleId);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                return View("Error");
+            }
+
+            for (int i = 0; i < model.Count; i++)
+            {
+                var user = await _userManager.FindByIdAsync(model[i].UserId);
+                var isUserInRole = await _userManager.IsInRoleAsync(user, role.Name);
+
+                IdentityResult result = null;
+
+                //перевіряємо чи відмічені юзери не мають дану роль, якщо так - додаємо роль
+                //перевіряємо чи невідмічені юзери мають дану роль, якщо так - видаляємо роль
+                if (model[i].IsSelected && !(isUserInRole))
+                {
+                    result = await _userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if (!(model[i].IsSelected) && isUserInRole)
+                {
+                    result = await _userManager.RemoveFromRoleAsync(user, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+
+                if (result.Succeeded)
+                {
+                    if (i >= (model.Count - 1))
+                    {
+                        return RedirectToAction("EditRole", new { Id = roleId });
+                    }
+                }
+            }
+
+            return RedirectToAction("EditRole", new { Id = roleId });
+        }
+
+        //Delete role
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            //шукаємо роль по id
+            //якщо знаходимо, то видаляємо модель
+            var role = await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("Error");
+            }
+            try
+            {
+                var result = await _roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles", "Administration");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                ViewBag.ErrorMessage = $"\"{role.Name}\" role is in use";
+                return View("Error");
+            }
+
+            return View("ListRoles");
         }
     }
 }

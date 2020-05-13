@@ -36,10 +36,8 @@ namespace StreetPizza
             var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
             //додаємо сервіси Identity
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-            {
-                options.Password.RequireNonAlphanumeric = false;
-            }).AddEntityFrameworkStores<EFDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<EFDbContext>();
 
             services.AddTransient<IProductRepository, ProductRepository>();
 

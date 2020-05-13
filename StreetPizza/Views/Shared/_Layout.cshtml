@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Identity;
-@inject SignInManager<ApplicationUser> signInManager;
 
 <!DOCTYPE html>
 <html>
@@ -37,23 +36,28 @@
                         <a class="nav-link" asp-controller="PayDelivery" asp-action="Index">PayMent and Delivery</a>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <form method="post" asp-controller="Account" asp-action="Logout" class="log-reg-block">
-                                <button type="submit" class="nav-link nav-userlink">
-                                    Logout @User.Identity.Name
-                                </button>
-                            </form>
+                            <div class="profile-block">
+                                <a class="nav-link nav-userlink"
+                                   asp-controller="Account" asp-action="Profile">
+                                    <span>@User.Identity.Name</span>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                    <i class="fa fa-diamond" aria-hidden="true"></i>
+                                    }
+                                </a>
+                            </div>
                         }
                         else
                         {
-                            <div class="log-reg-block">
+                            <div class="profile-block">
                                 <a class="nav-link" asp-controller="Account" asp-action="Login">
                                     <i class="fa fa-user fa-lg" aria-hidden="true"></i>
                                 </a>
                             </div>
                         }
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                        </a>
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                            </a>
                     </nav>
                 </div>
             </div>
@@ -206,7 +210,6 @@
     </footer>
 
     <environment include="Development">
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
@@ -218,27 +221,8 @@
                 crossorigin="anonymous"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
         </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <script>
-                                                // Add active class to the current button (highlight it)
-                                                //var header = document.getElementById("btns");
-                                                //var btns = header.getElementsByClassName("btn-changesize");
-                                                //for (var i = 0; i < btns.length; i++) {
-                                                //    btns[i].addEventListener("click", function () {
-                                                //        var current = document.getElementsByClassName("active");
-                                                //        current[0].className = current[0].className.replace(" active", "");
-                                                //        this.className += " active";
-                                                //    });
-                                                //}
-    </script>
 
     @RenderSection("Scripts", required: false)
 </body>
