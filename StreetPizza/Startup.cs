@@ -47,8 +47,9 @@ namespace StreetPizza
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseStatusCodePagesWithReExecute("/StatusCode/{0}");
             app.UseDeveloperExceptionPage();
-            app.UseStatusCodePages();
+            //app.UseStatusCodePages();
             app.UseStaticFiles();
 
             //підключення сервісів Identity(Аутентифікації)
