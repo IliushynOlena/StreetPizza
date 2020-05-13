@@ -40,8 +40,20 @@ namespace StreetPizza
                 .AddEntityFrameworkStores<EFDbContext>();
 
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
+
+            //працює з сесіями
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //корзина у кожного споживача своя
+            services.AddScoped(sp => OrderCart.GetCart(sp));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            ///
+            services.AddMemoryCache();
+            services.AddSession();
+
+
         }
 
 
@@ -50,6 +62,7 @@ namespace StreetPizza
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
 
             //підключення сервісів Identity(Аутентифікації)
             app.UseAuthentication();
