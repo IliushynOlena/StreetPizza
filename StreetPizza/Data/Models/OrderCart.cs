@@ -46,6 +46,10 @@ namespace StreetPizza.Data.Models
             return context.OrderCartItem.Where(c => c.OrderCartId == OrderCartId).Include(s => s.product).ToList();
         }
 
-
+        //отримуємо загальну суму товарів в кошику
+        public decimal CalculateTotalValue()
+        {
+            return getOrderItems().Sum(p => p.price);
+        }
     }
 }

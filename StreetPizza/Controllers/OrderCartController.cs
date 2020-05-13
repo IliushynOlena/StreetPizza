@@ -31,6 +31,8 @@ namespace StreetPizza.Controllers
             {
                 orderCart = _orderCart
                };
+
+            ViewBag.TotalSum = _orderCart.CalculateTotalValue();
            return View(obj);
         }
 
