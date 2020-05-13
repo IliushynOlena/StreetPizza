@@ -1,1 +1,29 @@
-﻿
+﻿@import '../../img/pizza';
+@import '../helpers/variables.css';
+
+
+.createproducts {
+    background: url("../../img/temnaya_derevyannaya_tekstura.png");
+    background-size: 100%;
+}
+
+label {
+    font-family: var(--font-family--second);
+    color: var(--font--color-primary-4);
+}
+button {
+    background-color: var(--button--color-primary-1);
+    color: var(--font--color-primary-4);
+    transition: background-color .3s linear;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    font-family: var(--font-family--first);
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-style: none;
+}
