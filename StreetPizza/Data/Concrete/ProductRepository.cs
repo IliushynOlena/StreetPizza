@@ -1,4 +1,5 @@
-﻿using StreetPizza.Data.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using StreetPizza.Data.Interfaces;
 using StreetPizza.Data.Models;
 using System.Collections.Generic;
 
@@ -14,6 +15,37 @@ namespace StreetPizza.Data.Concrete
         public IEnumerable<Product> Products
         {
             get { return context.Products; }
+        }
+
+        public Product CreateProducts(Product prod)
+        {
+            context.Products.Add(prod);
+            context.SaveChanges();
+            return prod;
+        }
+
+        public Product DeleteProduct(int Id)
+        {
+            Product prod = context.Products.Find(Id);
+            if (prod != null)
+            {
+                context.Products.Remove(prod);
+                context.SaveChanges();
+            }
+            return prod;
+        }
+
+        public Product GetProductById(int Id)
+        {
+            return context.Products.Find(Id);
+        }
+
+        public Product UpdateProduct(Product newProduct)
+        {
+            var post = context.Products.Attach(newProduct);
+            post.State = EntityState.Modified;
+            context.SaveChanges();
+            return newProduct;
         }
     }
 }
