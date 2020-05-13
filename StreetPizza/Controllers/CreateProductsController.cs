@@ -37,14 +37,14 @@ namespace StreetPizza.Controllers
                 string uniqFileName = null;
                 if (model.Img != null)
                 {
-                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img/pizza");
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "img");
                     uniqFileName = Guid.NewGuid().ToString() + "_" + model.Img.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqFileName);
                     model.Img.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
                 else
                 {
-                    uniqFileName = "trevizo.png";
+                    uniqFileName = "no.jpg";
                 }
                 Product newProduct = new Product
                 {
@@ -60,6 +60,23 @@ namespace StreetPizza.Controllers
 
             }
             return View();
+
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var prod = _prodRep.GetProductById(id);
+            if (prod.Img != null && prod.Img != "no.png")
+            {
+                //видаляємо фото з папки wwwroot по заданому шляху
+                string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img", prod.Img);
+                System.IO.File.Delete(filePath);
+            }
+            //видаляємо дані з бази по id
+            _prodRep.DeleteProduct(id);
+            //редірект 
+            return RedirectToRoute("default", new { controller = "Menu", action = "Index" });
 
         }
     }

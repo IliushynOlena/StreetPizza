@@ -22,5 +22,21 @@ namespace StreetPizza.Data.Concrete
             context.SaveChanges();
             return prod;
         }
+
+        public Product DeleteProduct(int Id)
+        {
+            Product prod = context.Products.Find(Id);
+            if (prod != null)
+            {
+                context.Products.Remove(prod);
+                context.SaveChanges();
+            }
+            return prod;
+        }
+
+        public Product GetProductById(int Id)
+        {
+            return context.Products.Find(Id);
+        }
     }
 }
