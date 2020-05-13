@@ -1,4 +1,9 @@
-﻿h4 {
+﻿.p404 {
+    background: url("../../img/temnaya_derevyannaya_tekstura.png");
+    background-size: 100%;
+}
+
+h4 {
     color: #253858;
     margin-bottom: 0.8rem;
     position: relative;
