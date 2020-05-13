@@ -12,6 +12,9 @@ namespace StreetPizza.Data
 
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<OrderCartItem> OrderCartItem { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

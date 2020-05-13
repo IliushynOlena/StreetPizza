@@ -1,11 +1,12 @@
 ﻿@model ProductListViewModel
 
+
 @{
     ViewData["Title"] = "Menu";
 }
 
 <div class="menu-page">
-    <h1 class="menu-title">Меню</h1>
+    <h1 class="menu-title">Menu</h1>
     <div class="menu-body">
         <div class="container">
             <div id="menu-categories">
@@ -14,19 +15,37 @@
 
             @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
             {
-                <a class="btn-first btn-primary" asp-controller="CreateProducts" asp-action="Index">Додати</a>
+                <a class="btn-first btn-primary" asp-controller="CreateProducts" asp-action="Create">Додати</a>
             }
 
             <div id="menu-items">
                 @{
-                    foreach (Product item in Model.Products)
+                    foreach (var item in Model.Products)
                     {
-                        @await Html.PartialAsync("ProductItemGrid", item)
+                        <div class="menu-item">
+                            <img class="item-image" src="~/img/pizza/@item.Img" alt="@item.Name" />
+                            <div class="item-body">
+                                <h2 class="item-name">@item.Name</h2>
+                                <p class="item-description">@item.Ingredients</p>
+                                <div class="item-order-info">
+                                    <div class="item-price">@item.PriceLarge</div>
+                                    <a asp-controller="OrderCart" asp-action="addToCart" asp-route-id="@item.Id" class="btn-first btn-color-first">В кошик</a>
+                                </div>
+
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <div class="item-order-info">
+                                        <a class="btn-first btn-warning" asp-controller="CreateProducts" asp-action="Edit" asp-route-id="@item.Id">Редагувати</a>
+                                        <a class="btn-first btn-danger" asp-controller="CreateProducts" asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
                     }
                 }
             </div>
             <div class="btns-pagination" page-model="@Model.PaggingInfo" page-action="Index" page-classes-enabled="true"
-                 page-class="btn-link" page-class-normal="btn-page" page-class-selected="btn-page selected"
+                 page-class="btn-cat-pag" page-class-normal="btn-page" page-class-selected="btn-page selected"
                  page-url-category="@Model.CurrentCategory"></div>
         </div>
     </div>

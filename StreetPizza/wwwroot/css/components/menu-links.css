@@ -1,6 +1,6 @@
 ﻿/*categories and pagination*/
 
-.btn-link {
+.btn-cat-pag {
     font-family: var(--font-family--second);
     font-size: 35px;
     color: var(--font--color-primary-4);
@@ -13,13 +13,13 @@
     text-decoration: none;
 }
 
-    .btn-link:hover {
+    .btn-cat-pag:hover {
         transition: .2s linear;
-        text-decoration:none;
+        text-decoration: none;
         color: var(--font--color-primary-2);
     }
 
-    .btn-link.selected {
+    .btn-cat-pag.selected {
         color: var(--font--color-primary-2);
         border: 2px solid var(--font--color-primary-2);
     }

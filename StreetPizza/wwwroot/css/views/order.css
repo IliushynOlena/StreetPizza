@@ -1,0 +1,130 @@
+﻿
+#cart {
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%;
+    font-size: 1.2em;
+    color: #444;
+    text-align: center;
+}
+
+    #cart thead th {
+        padding: 8px 0;
+        font-weight: bold;
+    }
+
+        #cart thead th.first {
+            width: 20%;
+        }
+
+        #cart thead th.second {
+            width: 20%;
+        }
+
+        #cart thead th.third {
+            width: 20%;
+        }
+
+        #cart thead th.fourth {
+            width: 20%;
+        }
+
+        #cart thead th.fifth {
+            width: 20%;
+        }
+
+    #cart tbody td {
+        text-align: center;
+        margin-top: 4px;
+    }
+
+tr.productitm {
+    height: 105px;
+    line-height: 100px;
+    border-bottom: 1px solid #d7dbe0;
+}
+
+
+#cart tbody td img.thumb {
+    vertical-align: bottom;
+    border: 1px solid #ddd;
+    margin-bottom: 4px;
+}
+
+.qtyinput {
+    width: 33px;
+    height: 22px;
+    border: 1px solid #a3b8d3;
+    background: #dae4eb;
+    color: #616161;
+    text-align: center;
+}
+
+tr.totalprice {
+    height: 35px;
+    line-height: 50px;
+}
+
+
+.remove {
+    /* http://findicons.com/icon/261449/trash_can?id=397422 */
+    cursor: pointer;
+    position: relative;
+    right: 12px;
+    top: 5px;
+}
+
+
+.light {
+    color: #888b8d;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.45);
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.thick {
+    color: #272727;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+
+/** submit btn **/
+tr.checkoutrow {
+    background: #cfdae8;
+    border-top: 1px solid #abc0db;
+    border-bottom: 1px solid #abc0db;
+}
+
+td.checkout {
+    padding: 12px 0;
+    padding-top: 20px;
+    width: 100%;
+    text-align: right;
+}
+.thumb {
+    width: 126px;
+    height: 90px;
+}
+.checkout-cont {
+    text-align: center;
+    margin: 10px;
+    margin-left: 25%;
+}
+.checkout-input {
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    outline: 0;
+    padding: .563em 1.2em;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.complete-container{
+    text-align:center;
+}
+@media (max-width: 767px) {
+    .checkout-cont {
+
+        margin-left: 0%;
+    }
+}

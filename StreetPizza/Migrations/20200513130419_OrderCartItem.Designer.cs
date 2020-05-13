@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StreetPizza.Data;
 
 namespace StreetPizza.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    partial class EFDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200513130419_OrderCartItem")]
+    partial class OrderCartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,29 +184,6 @@ namespace StreetPizza.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("StreetPizza.Data.Models.Order", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("adress");
-
-                    b.Property<string>("email");
-
-                    b.Property<string>("name");
-
-                    b.Property<DateTime>("orderTime");
-
-                    b.Property<string>("phone");
-
-                    b.Property<string>("surname");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Order");
-                });
-
             modelBuilder.Entity("StreetPizza.Data.Models.OrderCartItem", b =>
                 {
                     b.Property<int>("id")
@@ -222,27 +201,6 @@ namespace StreetPizza.Migrations
                     b.HasIndex("productId");
 
                     b.ToTable("OrderCartItem");
-                });
-
-            modelBuilder.Entity("StreetPizza.Data.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ProductID");
-
-                    b.Property<int>("orderID");
-
-                    b.Property<long>("price");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("ProductID");
-
-                    b.HasIndex("orderID");
-
-                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("StreetPizza.Data.Models.Product", b =>
@@ -324,19 +282,6 @@ namespace StreetPizza.Migrations
                     b.HasOne("StreetPizza.Data.Models.Product", "product")
                         .WithMany()
                         .HasForeignKey("productId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("StreetPizza.Data.Models.OrderDetail", b =>
-                {
-                    b.HasOne("StreetPizza.Data.Models.Product", "product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("StreetPizza.Data.Models.Order", "order")
-                        .WithMany("orderDetails")
-                        .HasForeignKey("orderID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
