@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,8 +8,11 @@
     <!-- Блок з початковою картинкою -->
     <div class="homepage-main-intro">
         <div class="container">
-            <h1 class="intro-title">Street Pizza</h1>
-            <h2 class="intro-subtitle">the best pizza<span class="intro-subtitle-accent"> in the world</span></h2>
+            <div class="intro-title-block">
+                <h1 class="intro-title">Street Pizza</h1>
+                <h2 class="intro-subtitle">найсмачніша піца</h2>
+                <h2 class="intro-subtitle-accent">спробуй емоції на смак</h2>
+            </div>
         </div>
     </div>
 
@@ -22,13 +27,13 @@
                     </div>
                     <div class="call-info-text">
                         <div class="call-info-text-callus">
-                            Call us now for<br />
+                            Телефонуйте для<br />
                         </div>
-                        <div class="call-info-text-accent">Home delivery</div>
+                        <div class="call-info-text-accent">доставки додому</div>
                     </div>
                 </div>
                 <div class="col-md-3 call-info-block call-info-number">
-                    1-008 005 006
+                    0 (31) 99-109-11
                 </div>
             </div>
         </div>
@@ -40,18 +45,22 @@
             <div class="row">
                 <div class="col-md-6">
 
-                    <h2 class="homepage-about-title">About us</h2>
+                    <h2 class="homepage-about-title">Про нас</h2>
 
+                    @*<p class="homepage-about-text">
+                        Піццерія «Street Pizza» - для нас це не просто бізнес! Ми любимо справу, якою займаємось,
+                        живемо нею і кожен день працюємо над тим, що робимо вас, наших клієнтів, щасливішими.
+                    </p>*@
                     <p class="homepage-about-text">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-                        sapiente odio laudantium
-                        nemo atque doloribus sit quam voluptatum ipsa vero, dolore modi? Eligendi, debitis unde, rerum
-                        sequi eius illum molestias ab porro commodi modi velit beatae ad excepturi impedit, recusandae
-                        et blanditiis qui amet libero? Esse excepturi, perspiciatis omnis nobis unde quasi, quidem
-                        consectetur porro sequi tenetur corrupti eius illo aliquid voluptatem qui cumque dolore eum
-                        aspernatur dolorem assumenda blanditiis rerum.
+                        Протягом 8-ми років ми з маленького “кіоска” стали сильним і відомим брендом у нашому 
+                        рідному місті…і це лише початок. Ми знаємо, що рухаємось в правильному напрямку, 
+                        про це свідчить число наших постійних клієнтів, яке постійно зростає. Вже більше 
+                        50 000 поціновувачів піци в Рівному обирають «Street Pizza»! Для нас це велика честь 
+                        і велика відповідальність. Тому ми постійно працюємо над нашими сильними сторонами, 
+                        а також над помилками, адже ніхто не ідеальний, проте ми таки прагнемо досконалості 
+                        в своїй справі.
                     </p>
-                    <a asp-controller="AboutUs" class="btn-first btn-color-first">Read more</a>
+                    <a asp-controller="AboutUs" class="btn-first btn-color-first">Детальніше</a>
                 </div>
                 <div class="col-md-6 homepage-about-image-block">
                     <div class="about-image-item about-image-item-1">
@@ -71,63 +80,13 @@
     <div class="homepage-today">
         <div class="container">
 
-            <h2 class="title-secondary-style">Today special</h2>
+            <h2 class="title-secondary-style">Найбільш популярні</h2>
 
             <div class="homepage-today-block">
-
-                <div class="homepage-today-item">
-                    <div class="today-item-image today-item-image-1">
-                    </div>
-                    <div class="today-item-info">
-                        <h3 class="today-item-name">Food name one</h3>
-                        <p class="today-item-description border-bottom">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit.
-                            Pariatur a quam molestiae
-                            aspernatur dignissimos nulla reiciendis non itaque, quis ab?
-                        </p>
-                        <div class="today-item-price-phone">
-                            <div class="today-item-home">
-                                HOME <br />
-                                <span class="today-item-delivery">DELIVERY</span>
-                            </div>
-                            <div class="today-item-phone">
-                                1-008 005 006
-                            </div>
-                            <div class="today-item-price">
-                                89.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="homepage-today-item">
-                    <div class="today-item-image today-item-image-2">
-                    </div>
-                    <div class="today-item-info">
-                        <h3 class="today-item-name">Food name two</h3>
-                        <p class="today-item-description border-bottom">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit.
-                            Pariatur a quam molestiae
-                            aspernatur dignissimos nulla reiciendis non itaque, quis ab?
-                        </p>
-                        <div class="today-item-price-phone">
-                            <div class="today-item-home">
-                                HOME <br />
-                                <span class="today-item-delivery">DELIVERY</span>
-                            </div>
-                            <div class="today-item-phone">
-                                1-008 005 006
-                            </div>
-                            <div class="today-item-price">
-                                89.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @foreach (var item in Model.FavoriteProducts)
+                {
+                    @await Html.PartialAsync("ProductItemGrid", item)
+                }
             </div>
         </div>
     </div>
@@ -136,139 +95,21 @@
     <div class="homepage-menu">
         <div class="container">
 
-            <h2 class="title-primary-style border-bottom">Menu</h2>
+            <h2 class="title-primary-style border-bottom">Меню</h2>
 
             <div class="row">
-                <div class="col-md-6">
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                MARGARITA
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            56.00
-                        </div>
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col-md-6">
+                        @await Html.PartialAsync("ProductItemList", item)
                     </div>
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                TUNA
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            73.00
-                        </div>
-                    </div>
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                4 CHEESES
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            84.00
-                        </div>
-                    </div>
-
-                    <div class="homepage-menu-item">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                PEPPERONI
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            77.00
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                SALAMI
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            71.00
-                        </div>
-                    </div>
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                CALZONE
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            64.00
-                        </div>
-                    </div>
-
-                    <div class="homepage-menu-item border-bottom">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                CHICKEN
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            70.00
-                        </div>
-                    </div>
-
-                    <div class="homepage-menu-item">
-                        <div class="menu-item-left-part">
-                            <h4 class="menu-item-name">
-                                HAM & PINEAPPLE
-                            </h4>
-                            <p class="menu-item-recipe">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis reiciendis iusto,
-                                praesentium!
-                            </p>
-                        </div>
-                        <div class="menu-item-price">
-                            92.00
-                        </div>
-                    </div>
-
-                </div>
+                }
             </div>
             <div class="row">
                 <div class="homepage-menu-readmore">
-                    <a href ="#" class="btn-first btn-color-first">Read more</a>
+                    <a class="btn-first btn-color-first" asp-controller="Menu" asp-action="Index">
+                        Детальніше
+                    </a>
                 </div>
             </div>
         </div>

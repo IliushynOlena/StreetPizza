@@ -11,11 +11,6 @@ namespace StreetPizza.Controllers
     [Authorize]
     public class MenuController : Controller
     {
-
-        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
-        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
-        // НІЧОГО НЕ МІНЯТИ В ЦЬОМУ КОНТРОЛЕРІ!!!
-
         private readonly IProductRepository _repository;
         public int PageSize = 3;
         public MenuController(IProductRepository repository)
