@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StreetPizza.Data.Interfaces;
 using StreetPizza.Data.Models;
@@ -26,6 +27,11 @@ namespace StreetPizza.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+           IEnumerable<string> Categories = _prodRep.Products
+                .Select(x => x.Category)
+                .Distinct()
+                .OrderBy(x => x);
+            ViewBag.Categories = new SelectList(Categories);
             return View();
         }
 
@@ -93,6 +99,13 @@ namespace StreetPizza.Controllers
                 PriceLarge = prod.PriceLarge.ToString(),
                 ExistImgPath = prod.Img
             };
+
+            IEnumerable<string> Categories = _prodRep.Products
+                .Select(x => x.Category)
+                .Distinct()
+                .OrderBy(x => x);
+            ViewBag.Categories = new SelectList(Categories);
+
             return View(editViewModel);
         }
 

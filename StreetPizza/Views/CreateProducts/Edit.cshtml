@@ -14,8 +14,8 @@
                     <input hidden asp-for="ExistImgPath" />
                     <div class="form-group">
                         <label asp-for="Category" class="col-sm-3 control-label">Категорія</label>
-                        <div class="col-sm-9">
-                            <input asp-for="Category" type="text" class="form-control" placeholder="Виберіть категорію">
+                        <div class="col-sm-6">
+                            <select asp-for="Category" asp-items="ViewBag.Categories" class="form-control" placeholder="Виберіть категорію"></select>
                             <span asp-validation-for="Category" class="text-danger"></span>
                         </div>
                     </div> <!-- form-group // -->

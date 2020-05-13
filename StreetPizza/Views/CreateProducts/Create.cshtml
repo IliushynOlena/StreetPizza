@@ -5,7 +5,7 @@
 
         <section class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"></h3>
+                <h3 class="panel-title text-center p-3">Додавання продукту</h3>
             </div>
             <div class="panel-body">
 
@@ -13,8 +13,8 @@
 
                     <div class="form-group">
                         <label asp-for="Category" class="col-sm-3 control-label">Категорія</label>
-                        <div class="col-sm-9">
-                            <input asp-for="Category" type="text" class="form-control" placeholder="Виберіть категорію">
+                        <div class="col-sm-6">
+                            <select asp-for="Category" asp-items="ViewBag.Categories" class="form-control" placeholder="Виберіть категорію"></select>
                             <span asp-validation-for="Category" class="text-danger"></span>
                         </div>
                     </div> <!-- form-group // -->
@@ -53,7 +53,7 @@
                     <hr>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit">Зберегти</button>
+                            <button class ="btn btn-info" type="submit">Зберегти</button>
                         </div>
                     </div> <!-- form-group // -->
                 </form>
