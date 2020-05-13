@@ -1,0 +1,62 @@
+﻿@model List<UserRoleViewModel>
+
+@{
+    ViewBag.Title = "Edit Users In Role";
+    var roleId = ViewBag.roleId;
+    var roleName = ViewBag.roleName;
+}
+
+<div class="container">
+    <hr class="log-reg-text-line" />
+
+    <div class="row">
+
+        <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+            <div class="log-reg-page">
+
+                <div class="log-reg-block">
+                    <h2 class="log-reg-title">Сторінка адміністратора</h2>
+                    <hr class="log-reg-text-line" id="short-line" />
+                    <p class="log-reg-subtitle">Надання користувачам даних прав</p>
+                </div>
+
+                <div class="log-reg-block-bottom">
+                    <div class="form-group">
+                        <label asp-for="@roleName" class="log-reg-label">Назва прав</label>
+                        <input asp-for="@roleName" disabled class="log-reg-text" />
+                    </div>
+
+                    <form method="post">
+                        <div class="card">
+                            <div class="card-header log-reg-label">
+                                <h3 class="log-reg-title">Список користувачів з даними правами</h3>
+                            </div>
+                            <div class="card-body">
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    <div class="form-check m-1">
+                                        <input type="hidden" asp-for="@Model[i].UserId" />
+                                        <input type="hidden" asp-for="@Model[i].UserName" />
+                                        <input class="form-check-input" asp-for="@Model[i].IsSelected" />
+                                        <label class="form-check-label log-reg-label" asp-for="@Model[i].IsSelected">
+                                            @Model[i].UserName
+                                        </label>
+                                    </div>
+                                }
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn-first btn-color-first btn-round">Оновити</button>
+                                <a asp-controller="Administration" asp-action="EditRole" asp-route-id="@roleId"
+                                   class="btn-first btn-color-second btn-round">Повернутись</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="log-reg-text-line" />
+</div>

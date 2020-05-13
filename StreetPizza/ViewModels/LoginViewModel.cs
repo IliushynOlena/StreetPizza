@@ -4,15 +4,14 @@ namespace StreetPizza.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Поле обов'язкове")]
+        [EmailAddress(ErrorMessage = "Має бути пошта")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Поле обов'язкове")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me")] 
         public bool RememberMe { get; set; }
     }
 }

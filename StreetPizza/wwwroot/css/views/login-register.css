@@ -1,7 +1,8 @@
-﻿@import "helpers/variables.css";
-
-#log-reg-body {
-    padding: 30px;
+﻿.log-reg-page {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:100%;
 }
 
 /*separator-line*/
@@ -36,18 +37,21 @@
 }
 
 /*titles*/
-.log-reg-title-block {
+.log-reg-block {
     margin-bottom: 50px;
+}
+.log-reg-block-bottom {
+    margin-bottom: 0;
 }
 
 .log-reg-title {
+    border:none;
     font-family: var(--font-family--third);
-    font-size: 35px;
     color: var(--font--color-primary-3);
 }
 
 #short-line {
-    border: 1px solid var(--button--color-primary-2);
+    border: 1px solid var(--button--color-primary-1);
     width: 100px;
     margin-left: 0;
 }
@@ -61,6 +65,7 @@
 .log-reg-title.link {
     display: block;
     height: 100%;
+    font-size: 35px;
 }
 
     .log-reg-title.link:hover {
@@ -70,9 +75,6 @@
     }
 
 /*active form*/
-.form-fields{
-    margin-bottom:20px;
-}
 
 .log-reg-label {
     color: var(--font--color-primary-1);
@@ -88,7 +90,6 @@
 .log-reg-text {
     border: 1px solid #ccc;
     border-radius: 50px;
-    box-sizing: border-box;
     outline: 0;
     padding: .563em 1.2em;
     width: 100%;

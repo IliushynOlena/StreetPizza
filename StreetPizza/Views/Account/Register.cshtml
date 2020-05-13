@@ -4,76 +4,75 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="log-reg-page">
-    <div class="container">
-        <hr class="log-reg-text-line" />
+<div class="container">
+    <hr class="log-reg-text-line" />
 
-        <div class="row justify-content-around" id="log-reg-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="log-reg-page">
 
-            <div class="col-md-3">
-                <div class="log-reg-title-block">
-                    <a class="log-reg-title link" asp-area="" asp-controller="Account" asp-action="Login">
-                        Sign in
+                <div class="log-reg-block">
+                    <a class="log-reg-title link" asp-controller="Account" asp-action="Login">
+                        Вхід
                         <hr class="log-reg-text-line" id="short-line" />
-                        <p class="log-reg-subtitle">Welcome back!</p>
-                        <p class="log-reg-subtitle">Log in to your account!</p>
+                        <p class="log-reg-subtitle">З поверненням!</p>
+                        <p class="log-reg-subtitle">Увійдіть до вашого аккаунту!</p>
                     </a>
                 </div>
-            </div>
 
-            <div class="col-md-1 separator-line">
-                <span class="separator-text">or</span>
             </div>
+        </div>
 
-            <div class="col-md-8">
-                <div class="log-reg-title-block">
-                    <h2 class="log-reg-title">Sign up</h2>
+        <div class="col-md-1 separator-line">
+            <span class="separator-text">or</span>
+        </div>
+
+        <div class="col-md-7">
+            <div class="log-reg-page">
+
+                <div class="log-reg-block">
+                    <h2 class="log-reg-title">Реєстрація</h2>
                     <hr class="log-reg-text-line" id="short-line" />
-                    <p class="log-reg-subtitle">Create your own account!</p>
+                    <p class="log-reg-subtitle">Створіть свій власний аккаунт!</p>
                 </div>
+
                 <form method="post">
-                    <div class="form-fields">
-                        <div class="form-group">
-                            <label asp-for="Name" class="log-reg-label">
-                                Name <span class="required">*</span>
-                            </label>
-                            <input asp-for="Name" class="log-reg-text" />
-                            <span asp-validation-for="Name" class="log-reg-valid"></span>
-                        </div>
+                    <div class="log-reg-block">
                         <div class="form-group">
                             <label asp-for="Email" class="log-reg-label">
-                                Email <span class="required">*</span>
+                                Пошта <span class="required">*</span>
                             </label>
                             <input asp-for="Email" class="log-reg-text" />
                             <span asp-validation-for="Email" class="log-reg-valid"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Password" class="log-reg-label">
-                                Password <span class="required">*</span>
+                                Пароль <span class="required">*</span>
                             </label>
                             <input asp-for="Password" class="log-reg-text" />
-                            <div asp-validation-summary="ModelOnly" class="log-reg-valid"></div>
+                            <span asp-validation-for="Password" class="log-reg-valid"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="ConfirmPassword" class="log-reg-label">
-                                Confirm Password <span class="required">*</span>
+                                Підтвердіть пароль <span class="required">*</span>
                             </label>
                             <input asp-for="ConfirmPassword" class="log-reg-text" />
                             <span asp-validation-for="ConfirmPassword" class="log-reg-valid"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Country" class="log-reg-label">
-                                Country
+                                Країна
                             </label>
                             <input asp-for="Country" class="log-reg-text" />
                             <span asp-validation-for="Country" class="log-reg-valid"></span>
                         </div>
                     </div>
-                    <button type="submit" class="btn-first btn-color-first btn-round">Sign up</button>
+                    <button type="submit" class="btn-first btn-color-first btn-round">Реєстрація</button>
                 </form>
-            </div>
 
+            </div>
         </div>
-        <hr class="log-reg-text-line" />
+
     </div>
+    <hr class="log-reg-text-line" />
 </div>

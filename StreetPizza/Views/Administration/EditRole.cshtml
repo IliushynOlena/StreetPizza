@@ -1,0 +1,74 @@
+﻿@model EditRoleViewModel
+
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+<div class="container">
+    <hr class="log-reg-text-line" />
+
+    <div class="row">
+
+        <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+
+            <div class="log-reg-block">
+                <h2 class="log-reg-title">Сторінка адміністратора</h2>
+                <hr class="log-reg-text-line" id="short-line" />
+                <p class="log-reg-subtitle">Редагувати права</p>
+            </div>
+
+            <div class="log-reg-block">
+                <form method="post">
+
+                    <div class="form-group">
+                        <label asp-for="Id" class="log-reg-label">Id</label>
+                        <input asp-for="Id" disabled class="log-reg-text" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RoleName" class="log-reg-label">Назва</label>
+                        <input asp-for="RoleName" class="log-reg-text" />
+                        <span asp-validation-for="RoleName" class="log-reg-valid"></span>
+                    </div>
+                    <div asp-validation-summary="All" class="log-reg-valid"></div>
+
+                    <div class="log-reg-block">
+                        <button type="submit" class="btn-first btn-color-first btn-round">Оновити</button>
+                        <a asp-controller="Administration" asp-action="ListRoles"
+                           class="btn-first btn-color-second btn-round">Повернутись</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="log-reg-block-bottom">
+                <div class="card">
+                    <div class="card-header log-reg-label">
+                        <h3 class="log-reg-title">Список користувачів з даними правами</h3>
+                    </div>
+                    <div class="card-body log-reg-label">
+                        @if (Model.Users.Any())
+                        {
+                            foreach (var user in Model.Users)
+                            {
+                                <h5 class="log-reg-label">@user</h5>
+                            }
+                        }
+                        else
+                        {
+                            <h5 class="log-reg-label">None at the moment </h5>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn-first btn-color-first btn-round"
+                           asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id">
+                            Змінити
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="log-reg-text-line" />
+</div>
