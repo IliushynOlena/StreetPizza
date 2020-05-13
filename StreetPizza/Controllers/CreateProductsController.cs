@@ -24,13 +24,13 @@ namespace StreetPizza.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateProduct()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateProduct(CreateProductsViewModel model)
+        public IActionResult Create(CreateProductsViewModel model)
         {
             if (ModelState.IsValid)
             {
