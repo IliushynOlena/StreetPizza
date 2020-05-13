@@ -1,0 +1,73 @@
+﻿@model OrderCartViewModel
+
+<div class="container">
+    @foreach (var el in Model.orderCart.listOrderItems)
+    {
+        <div class="alert" alert-warning mt-3>
+            <b>Pizza:</b>@el.product.Name<br/>
+            <b>Price:</b>@el.product.PriceLarge.ToString("c");
+
+        </div>
+    }
+    <hr/>
+    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Pay </a>
+
+</div>
+
+
+<div class="container">
+        <hr class="log-reg-text-line" />
+    <div id="page">
+        <table id="cart">
+            <thead>
+                <tr>
+                    <th class="first">Фото</th>
+                    <th class="second">Кількість</th>
+                    <th class="third">Товар</th>
+                    <th class="fourth">Ціна</th>
+                    <th class="fifth">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody class="shopping-cart-table">
+                <tr class="productitm">
+                    <td><img src="https://clipart-best.com/img/pizza/pizza-clip-art-48.png" class="thumb"></td>
+                    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                    <td>Папероні</td>
+                    <td>$79.00</td>
+                    <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"></span></td>
+                </tr>
+                <tr class="productitm">
+                    <td><img src="https://pngimg.com/uploads/pizza/pizza_PNG43985.png" class="thumb"></td>
+                    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                    <td>Салямі</td>
+                    <td>$8.95</td>
+                    <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"></span></td>
+                </tr>
+                <tr class="productitm">
+                    <td><img src="https://pngimg.com/uploads/pizza/pizza_PNG44092.png" class="thumb"></td>
+                    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                    <td>Гавайська</td>
+                    <td>$75.00</td>
+                    <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"></span></td>
+                </tr>
+                <tr class="productitm">
+                    <td><img src="https://eco-pizza.ru/image/cache/catalog/pizza/png/MOSKVICH-500x485.png" class="thumb"></td>
+                    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+                    <td>Чотири сири</td>
+                    <td>$27.50</td>
+                    <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"></span></td>
+                </tr>
+
+                <tr class="totalprice">
+                    <td class="light">Total:</td>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2"><span class="thick">$225.45</span></td>
+                </tr>
+
+                <tr class="checkoutrow">
+                    <td colspan="5" class="checkout"><button type="submit" class="btn-first btn-color-first btn-round">Перейти до оформлення</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
