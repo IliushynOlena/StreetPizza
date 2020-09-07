@@ -214,7 +214,8 @@ namespace StreetPizza.Data
                     Ingredients = model.Ingredients,
                     PriceMedium = model.PriceMedium,
                     PriceLarge = model.PriceLarge,
-                    IsFavorite = model.IsFavorite
+                    IsFavorite = model.IsFavorite,
+                    Category = model.Category
 
                 };
                 context.Products.Add(product);
